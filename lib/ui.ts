@@ -1,4 +1,4 @@
-// =============================================================
+﻿// =============================================================
 // Class tokens cho design system "sticker / neo-brutalist".
 // Viết literal đầy đủ để Tailwind không bị purge nhầm.
 // =============================================================
@@ -10,11 +10,11 @@ export function cx(...parts: Array<string | false | null | undefined>): string {
 
 // Thẻ chuẩn: bo góc, viền 2px ink, bóng cứng.
 export const CARD =
-  'rounded-2xl border-2 border-ink bg-white shadow-hard';
+  'rounded-2xl border-2 border-ink/60 bg-white shadow-hard';
 
 // Nút lớn: viền 2px, bóng cứng 4px, nhấn xuống khi active.
 export const BTN_BASE =
-  'group inline-flex items-center justify-center gap-2 rounded-xl border-2 border-ink px-5 py-3 text-[15px] font-bold font-sans transition-all duration-100 shadow-hard-sm hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[5px_5px_0_#251a12] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#251a12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2';
+  'group inline-flex items-center justify-center gap-2 rounded-xl border-2 border-ink/60 px-5 py-3 text-[15px] font-bold font-sans transition-all duration-100 shadow-hard-sm hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[5px_5px_0_#251a12] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#251a12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2';
 
 export type BtnVariant = 'coral' | 'teal' | 'white' | 'ink' | 'whiteTeal';
 
@@ -32,8 +32,8 @@ export function btn(variant: BtnVariant = 'coral', extra?: string): string {
 
 // Badge / chip dạng pill, viền 2px, bóng nhỏ.
 export const BADGE =
-  'inline-flex items-center gap-2 rounded-full border-2 border-ink px-3 py-1 text-sm font-semibold shadow-hard-xs';
+  'inline-flex items-center gap-2 rounded-full border-2 border-ink/60 px-3 py-1 text-sm font-semibold shadow-hard-xs';
 
 // Chip tin cậy (nền trắng).
 export const CHIP =
-  'inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-white px-3 py-1.5 text-sm font-semibold shadow-hard-xs';
+  'inline-flex items-center gap-1.5 rounded-full border-2 border-ink/60 bg-white px-3 py-1.5 text-sm font-semibold shadow-hard-xs';

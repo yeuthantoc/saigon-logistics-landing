@@ -1,7 +1,7 @@
-'use client';
+﻿'use client';
 
 import { useMemo, useState } from 'react';
-import { RATES, RATE_KEYS, estimate, fmtVnd, type RateKey } from '@/lib/rates';
+import { RATES, RATE_KEYS, flagUrl, estimate, fmtVnd, type RateKey } from '@/lib/rates';
 import { openLeadForm, track } from '@/lib/analytics';
 import { btn } from '@/lib/ui';
 
@@ -13,7 +13,7 @@ export default function RateEstimator() {
   const rate = RATES[country];
 
   return (
-    <div className="rounded-3xl border-2 border-ink bg-white p-5 shadow-hard-lg sm:p-6">
+    <div className="rounded-3xl border-2 border-ink/60 bg-white p-5 shadow-hard-lg sm:p-6">
       <div className="flex items-start gap-2">
         <span className="emoji text-2xl" aria-hidden>
           🧮
@@ -33,24 +33,34 @@ export default function RateEstimator() {
         <span className="mb-1.5 block text-sm font-semibold text-ink">
           Gửi đi đâu?
         </span>
-        <select
-          value={country}
-          onChange={(e) => setCountry(e.target.value as RateKey)}
-          className="w-full appearance-none rounded-xl border-2 border-ink bg-cream px-4 py-3 text-base font-semibold text-ink shadow-hard-xs focus:outline-none focus:ring-2 focus:ring-coral"
-        >
-          {RATE_KEYS.map((key) => (
-            <option key={key} value={key}>
-              {RATES[key].flag} {RATES[key].name}
-            </option>
-          ))}
-        </select>
+        <div className="flex items-center gap-3">
+          <img
+            src={flagUrl(country, 40)}
+            srcSet={`${flagUrl(country, 40)} 1x, ${flagUrl(country, 80)} 2x`}
+            width={40}
+            height={30}
+            alt={RATES[country].name}
+            className="flex-shrink-0 rounded"
+          />
+          <select
+            value={country}
+            onChange={(e) => setCountry(e.target.value as RateKey)}
+            className="w-full appearance-none rounded-xl border-2 border-ink/60 bg-cream px-4 py-3 text-base font-semibold text-ink shadow-hard-xs focus:outline-none focus:ring-2 focus:ring-coral"
+          >
+            {RATE_KEYS.map((key) => (
+              <option key={key} value={key}>
+                {RATES[key].name}
+              </option>
+            ))}
+          </select>
+        </div>
       </label>
 
       {/* Cân nặng */}
       <label className="mt-4 block">
         <span className="mb-1.5 flex items-center justify-between text-sm font-semibold text-ink">
           <span>Cân nặng</span>
-          <span className="rounded-full border-2 border-ink bg-coral-light px-2.5 py-0.5 font-display text-sm font-bold shadow-hard-xs">
+          <span className="rounded-full border-2 border-ink/60 bg-coral-light px-2.5 py-0.5 font-display text-sm font-bold shadow-hard-xs">
             {weight} kg
           </span>
         </span>
@@ -62,7 +72,7 @@ export default function RateEstimator() {
           value={weight}
           onChange={(e) => setWeight(parseFloat(e.target.value))}
           aria-label="Cân nặng (kg)"
-          className="h-2 w-full cursor-pointer appearance-none rounded-full border-2 border-ink bg-peach accent-coral"
+          className="h-2 w-full cursor-pointer appearance-none rounded-full border-2 border-ink/60 bg-peach accent-coral"
         />
         <div className="mt-1 flex justify-between text-xs font-medium text-muted2">
           <span>0,5 kg</span>
@@ -71,7 +81,7 @@ export default function RateEstimator() {
       </label>
 
       {/* Kết quả */}
-      <div className="mt-5 rounded-2xl border-2 border-ink bg-teal-tint p-4">
+      <div className="mt-5 rounded-2xl border-2 border-ink/60 bg-teal-tint p-4">
         <div className="flex items-end justify-between gap-3">
           <span className="text-sm font-semibold text-ink">Ước tính cước</span>
           <span className="font-display text-3xl font-extrabold leading-none text-teal">

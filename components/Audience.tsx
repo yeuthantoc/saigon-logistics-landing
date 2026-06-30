@@ -1,4 +1,4 @@
-import { AUDIENCE } from '@/lib/content';
+﻿import { AUDIENCE } from '@/lib/content';
 
 const TONE: Record<string, string> = {
   peach: 'bg-peach',
@@ -7,7 +7,7 @@ const TONE: Record<string, string> = {
 
 export default function Audience() {
   return (
-    <section id="dich-vu" className="border-t-2 border-ink bg-cream">
+    <section id="dich-vu" className="border-t-2 border-ink/60 bg-cream">
       <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
         <div className="max-w-2xl">
           <h2 className="font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
@@ -23,10 +23,10 @@ export default function Audience() {
           {AUDIENCE.map((a) => (
             <div
               key={a.title}
-              className={`flex flex-col rounded-2xl border-2 border-ink p-5 shadow-hard ${TONE[a.tone]}`}
+              className={`flex flex-col rounded-2xl border-2 border-ink/60 p-5 shadow-hard ${TONE[a.tone]}`}
             >
               <span
-                className="emoji flex h-12 w-12 items-center justify-center rounded-xl border-2 border-ink bg-white text-2xl shadow-hard-xs"
+                className="emoji flex h-12 w-12 items-center justify-center rounded-xl border-2 border-ink/60 bg-white text-2xl shadow-hard-xs"
                 aria-hidden
               >
                 {a.icon}

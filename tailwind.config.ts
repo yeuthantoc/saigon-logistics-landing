@@ -32,10 +32,8 @@ const config: Config = {
         'on-dark': '#c4b5a8',
       },
       fontFamily: {
-        // Heading / số liệu
-        display: ['var(--font-bricolage)', 'system-ui', 'sans-serif'],
-        // Body / UI
-        sans: ['var(--font-bevietnam)', 'system-ui', 'sans-serif'],
+        display: ['Bricolage Grotesque', 'system-ui', 'sans-serif'],
+        sans: ['Be Vietnam Pro', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         xl: '12px',

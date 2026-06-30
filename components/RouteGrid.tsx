@@ -1,6 +1,6 @@
-'use client';
+﻿'use client';
 
-import { ROUTES, fmtShortVnd } from '@/lib/rates';
+import { ROUTES, flagUrl, fmtShortVnd } from '@/lib/rates';
 import { openLeadForm, track } from '@/lib/analytics';
 
 // Bóng cứng xoay vòng coral / teal.
@@ -30,11 +30,17 @@ export default function RouteGrid() {
               track('select_content', { content_type: 'route', source: `route_${r.key}` });
               openLeadForm({ route: r.key, source: `route_${r.key}` });
             }}
-            className={`group flex flex-col items-start rounded-2xl border-2 border-ink bg-white p-5 text-left transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 ${SHADOWS[i % SHADOWS.length]}`}
+            className={`group flex flex-col items-start rounded-2xl border-2 border-ink/60 bg-white p-5 text-left transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 ${SHADOWS[i % SHADOWS.length]}`}
           >
-            <span className="emoji text-4xl leading-none" aria-hidden>
-              {r.flag}
-            </span>
+            <img
+              src={flagUrl(r.key, 48)}
+              srcSet={`${flagUrl(r.key, 48)} 1x, ${flagUrl(r.key, 96)} 2x`}
+              width={48}
+              height={36}
+              alt=""
+              aria-hidden
+              className="rounded"
+            />
             <h3 className="mt-3 font-display text-xl font-extrabold text-ink">
               {r.name}
             </h3>

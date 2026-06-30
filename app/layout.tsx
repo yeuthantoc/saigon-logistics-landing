@@ -1,22 +1,7 @@
 import type { Metadata, Viewport } from 'next';
-import { Bricolage_Grotesque, Be_Vietnam_Pro } from 'next/font/google';
 import Script from 'next/script';
 import { SITE } from '@/lib/site';
 import './globals.css';
-
-const bricolage = Bricolage_Grotesque({
-  subsets: ['latin', 'vietnamese'],
-  weight: ['700', '800'],
-  variable: '--font-bricolage',
-  display: 'swap',
-});
-
-const beVietnam = Be_Vietnam_Pro({
-  subsets: ['latin', 'vietnamese'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-bevietnam',
-  display: 'swap',
-});
 
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
@@ -43,6 +28,7 @@ export const metadata: Metadata = {
   authors: [{ name: SITE.name }],
   creator: SITE.name,
   publisher: SITE.name,
+  icons: { icon: '/favicon.svg', shortcut: '/favicon.svg' },
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
@@ -52,6 +38,7 @@ export const metadata: Metadata = {
     title: 'Gửi hàng đi Mỹ, Úc, Âu & quốc tế | SAIGON LOGISTICS',
     description:
       'Chuyển phát nhanh quốc tế: gửi hàng đi Mỹ, Úc, Canada, châu Âu, Nhật, Hàn, Singapore. Báo giá minh bạch trong 5 phút.',
+    images: [{ url: `${SITE.url}/og-image.png`, width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -113,8 +100,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi" className={`${bricolage.variable} ${beVietnam.variable}`}>
-      <body className="no-tap-highlight">
+    <html lang="vi">
+      <body className="no-tap-highlight" suppressHydrationWarning>
         {children}
 
         <script
