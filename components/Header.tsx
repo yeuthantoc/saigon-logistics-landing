@@ -10,13 +10,13 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b-2 border-ink/60 bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/80">
+    <header className="sticky top-0 z-40 border-b-2 border-ink bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/80">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
         {/* Logo */}
         <a href="#top" className="flex items-center gap-3" aria-label={SITE.name}>
           <span
             aria-hidden
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border-2 border-ink/60 bg-coral font-display text-2xl font-extrabold text-white shadow-hard-xs"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border-2 border-ink bg-coral font-display text-2xl font-extrabold text-white shadow-hard-xs"
           >
             S
           </span>
@@ -64,7 +64,7 @@ export default function Header() {
             aria-label={open ? 'Đóng menu' : 'Mở menu'}
             aria-expanded={open}
             aria-controls="mobile-nav"
-            className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-ink/60 bg-white shadow-hard-xs md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-ink bg-white shadow-hard-xs md:hidden"
           >
             <span className="relative block h-3.5 w-5">
               <span
@@ -95,7 +95,7 @@ export default function Header() {
         id="mobile-nav"
         aria-hidden={!open}
         className={cx(
-          'overflow-hidden border-ink/60 bg-cream transition-[max-height] duration-200 ease-in-out md:hidden',
+          'overflow-hidden border-ink bg-cream transition-[max-height] duration-200 ease-in-out md:hidden',
           open ? 'max-h-96 border-t-2' : 'max-h-0',
         )}
       >

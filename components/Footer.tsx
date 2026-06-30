@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="cv-auto border-t-2 border-ink/60 bg-ink text-on-dark">
+    <footer className="cv-auto border-t-2 border-ink bg-ink text-ink-soft">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <span
@@ -15,7 +15,7 @@ export default function Footer() {
             <div className="font-display text-base font-extrabold text-white">
               {SITE.name}
             </div>
-            <div className="text-sm text-on-dark">{SITE.tagline}</div>
+            <div className="text-sm text-ink-soft">{SITE.tagline}</div>
           </div>
         </div>
 
@@ -28,7 +28,7 @@ export default function Footer() {
           >
             Zalo: {SITE.zaloPhone}
           </a>
-          <span className="px-2 text-on-dark/50">·</span>
+          <span className="px-2 text-ink-soft/50">·</span>
           <a
             href={`tel:${SITE.hotlineTel}`}
             className="font-semibold text-white underline-offset-2 hover:underline"
@@ -39,7 +39,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-4 py-4 text-xs text-on-dark/70">
+        <div className="mx-auto max-w-6xl px-4 py-4 text-xs text-ink-soft/70">
           © {SITE.name}. Gửi hàng đi Mỹ, Úc, Canada, châu Âu, Nhật, Hàn,
           Singapore &amp; toàn cầu.
         </div>

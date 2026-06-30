@@ -11,14 +11,14 @@ export default function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 md:grid-cols-2 md:py-16 lg:gap-14">
         {/* Cột trái */}
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink/60 bg-coral-light px-3.5 py-1.5 text-sm font-bold text-ink shadow-hard-xs">
+          <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-coral-light px-3.5 py-1.5 text-sm font-bold text-ink shadow-hard-xs">
             <span className="emoji">🚀</span> Gửi hôm nay, người thân nhận sau 3–5
             ngày
           </span>
 
           <h1 className="mt-5 font-display text-[2.6rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl md:text-[2.9rem] lg:text-[3rem]">
             Gửi đồ đi nước ngoài, cứ để{' '}
-            <span className="inline-block -rotate-[1.5deg] rounded-xl border-2 border-ink/60 bg-coral px-2.5 py-0.5 text-white shadow-hard-sm">
+            <span className="inline-block -rotate-[1.5deg] rounded-xl border-2 border-ink bg-coral px-2.5 py-0.5 text-white shadow-hard-sm">
               tụi mình lo!
             </span>
           </h1>

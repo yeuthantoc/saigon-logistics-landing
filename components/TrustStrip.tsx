@@ -2,7 +2,7 @@
 
 export default function TrustStrip() {
   return (
-    <section className="reveal-fade border-y-2 border-ink/60 bg-teal text-white">
+    <section className="reveal-fade border-y-2 border-ink bg-teal text-white">
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-y-6 px-4 py-8 md:grid-cols-4 md:py-10">
         {STATS.map((s) => (
           <div key={s.label} className="text-center">

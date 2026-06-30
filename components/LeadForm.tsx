@@ -14,7 +14,7 @@ import { btn } from '@/lib/ui';
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 const inputBase =
-  'w-full rounded-xl border-2 border-ink/60 bg-cream px-4 py-2.5 text-base text-ink shadow-hard-xs placeholder:text-muted2 focus:outline-none focus:ring-2 focus:ring-coral';
+  'w-full rounded-xl border-2 border-ink bg-cream px-4 py-2.5 text-base text-ink shadow-hard-xs placeholder:text-muted-2 focus:outline-none focus:ring-2 focus:ring-coral';
 
 export default function LeadForm() {
   const [open, setOpen] = useState(false);
@@ -124,20 +124,20 @@ export default function LeadForm() {
       }}
     >
       <div className="flex min-h-full w-full items-end justify-center sm:items-center sm:p-4">
-        <div className="relative w-full max-w-md rounded-t-3xl border-2 border-ink/60 bg-cream p-5 shadow-hard-lg sm:rounded-3xl sm:p-6">
+        <div className="relative w-full max-w-md rounded-t-3xl border-2 border-ink bg-cream p-5 shadow-hard-lg sm:rounded-3xl sm:p-6">
           {/* Nút đóng */}
           <button
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Đóng"
-            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-lg border-2 border-ink/60 bg-white text-lg font-bold shadow-hard-xs hover:bg-peach"
+            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-lg border-2 border-ink bg-white text-lg font-bold shadow-hard-xs hover:bg-peach"
           >
             ✕
           </button>
 
           {status === 'success' ? (
             <div className="py-4 text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-ink/60 bg-teal text-3xl text-white shadow-hard-sm">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-ink bg-teal text-3xl text-white shadow-hard-sm">
                 ✓
               </div>
               <h2 className="mt-4 font-display text-2xl font-extrabold text-ink">
@@ -269,7 +269,7 @@ export default function LeadForm() {
 
                 <div>
                   <label htmlFor="lead-note" className="mb-1 block text-sm font-semibold text-ink">
-                    Ghi chú <span className="font-normal text-muted2">(tuỳ chọn)</span>
+                    Ghi chú <span className="font-normal text-muted-2">(tuỳ chọn)</span>
                   </label>
                   <textarea
                     id="lead-note"
@@ -308,7 +308,7 @@ export default function LeadForm() {
                   {status === 'submitting' ? 'Đang gửi…' : 'Gửi & nhận báo giá →'}
                 </button>
 
-                <p className="text-center text-xs text-muted2">
+                <p className="text-center text-xs text-muted-2">
                   Bằng cách gửi, bạn đồng ý để {SITE.name} liên hệ tư vấn báo giá.
                 </p>
               </form>

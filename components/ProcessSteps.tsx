@@ -3,13 +3,13 @@ import { STEPS } from '@/lib/content';
 
 export default function ProcessSteps() {
   return (
-    <section id="theo-doi" className="reveal cv-auto border-y-2 border-ink/60 bg-ink text-cream">
+    <section id="theo-doi" className="reveal cv-auto border-y-2 border-ink bg-ink text-cream">
       <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
         <div className="max-w-2xl">
           <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             Gửi hàng chỉ 4 bước
           </h2>
-          <p className="mt-2 text-on-dark">
+          <p className="mt-2 text-ink-soft">
             Đơn giản như nhắn tin — phần khó để tụi mình lo.
           </p>
         </div>
@@ -25,14 +25,14 @@ export default function ProcessSteps() {
                   >
                     {s.icon}
                   </span>
-                  <span className="rounded-full border-2 border-white/25 px-2.5 py-0.5 font-display text-xs font-bold tracking-wide text-on-dark">
+                  <span className="rounded-full border-2 border-white/25 px-2.5 py-0.5 font-display text-xs font-bold tracking-wide text-ink-soft">
                     BƯỚC {i + 1}
                   </span>
                 </div>
                 <h3 className="mt-4 font-display text-lg font-extrabold text-white">
                   {s.title}
                 </h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-on-dark">
+                <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
                   {s.desc}
                 </p>
               </div>

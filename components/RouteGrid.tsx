@@ -1,14 +1,11 @@
 ﻿'use client';
 
+import Link from 'next/link';
 import { ROUTES, flagUrl, fmtShortVnd } from '@/lib/rates';
-import { openLeadForm, track } from '@/lib/analytics';
-import { yieldToMain } from '@/lib/yield';
+import { SLUG_BY_KEY } from '@/lib/routes';
 
-// Bóng cứng xoay vòng coral / teal.
-const SHADOWS = [
-  'shadow-[6px_6px_0_#1a6fa8]',
-  'shadow-[6px_6px_0_#0e7c6b]',
-];
+// Giá cước xen kẽ coral / teal theo brand.
+const PRICE_COLORS = ['text-coral', 'text-teal'];
 
 export default function RouteGrid() {
   return (
@@ -24,15 +21,10 @@ export default function RouteGrid() {
 
       <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {ROUTES.map((r, i) => (
-          <button
+          <Link
             key={r.key}
-            type="button"
-            onClick={async () => {
-              track('select_content', { content_type: 'route', source: `route_${r.key}` });
-              await yieldToMain();
-              openLeadForm({ route: r.key, source: `route_${r.key}` });
-            }}
-            className={`group flex flex-col items-start rounded-2xl border-2 border-ink/60 bg-white p-5 text-left transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 ${SHADOWS[i % SHADOWS.length]}`}
+            href={`/tuyen/${SLUG_BY_KEY[r.key]}`}
+            className="group flex flex-col items-start rounded-2xl border-2 border-ink bg-white p-5 shadow-hard-sm transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2"
           >
             <img
               src={flagUrl(r.key, 48)}
@@ -51,13 +43,13 @@ export default function RouteGrid() {
               {r.eta} · door-to-door
             </p>
             <div className="mt-4 flex w-full items-end justify-between">
-              <span className="text-sm text-muted2">từ</span>
-              <span className="font-display text-2xl font-extrabold text-coral">
+              <span className="text-sm text-muted-2">từ</span>
+              <span className={`font-display text-2xl font-extrabold ${PRICE_COLORS[i % PRICE_COLORS.length]}`}>
                 {fmtShortVnd(r.perKg)}
                 <span className="text-base font-bold text-ink">/kg</span>
               </span>
             </div>
-          </button>
+          </Link>
         ))}
       </div>
     </section>
