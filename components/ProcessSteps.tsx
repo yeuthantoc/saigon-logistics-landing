@@ -3,7 +3,7 @@ import { STEPS } from '@/lib/content';
 
 export default function ProcessSteps() {
   return (
-    <section id="theo-doi" className="border-y-2 border-ink/60 bg-ink text-cream">
+    <section id="theo-doi" className="reveal cv-auto border-y-2 border-ink/60 bg-ink text-cream">
       <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
         <div className="max-w-2xl">
           <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">

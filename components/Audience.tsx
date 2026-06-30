@@ -7,7 +7,7 @@ const TONE: Record<string, string> = {
 
 export default function Audience() {
   return (
-    <section id="dich-vu" className="border-t-2 border-ink/60 bg-cream">
+    <section id="dich-vu" className="reveal cv-auto border-t-2 border-ink/60 bg-cream">
       <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
         <div className="max-w-2xl">
           <h2 className="font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">

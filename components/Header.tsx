@@ -1,9 +1,9 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import { SITE } from '@/lib/site';
 import { NAV } from '@/lib/content';
-import { btn } from '@/lib/ui';
+import { btn, cx } from '@/lib/ui';
 import { track } from '@/lib/analytics';
 
 export default function Header() {
@@ -61,43 +61,58 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            aria-label="Mở menu"
+            aria-label={open ? 'Đóng menu' : 'Mở menu'}
             aria-expanded={open}
+            aria-controls="mobile-nav"
             className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-ink/60 bg-white shadow-hard-xs md:hidden"
           >
             <span className="relative block h-3.5 w-5">
               <span
-                className={`absolute left-0 top-0 h-0.5 w-5 bg-ink transition-transform ${open ? 'translate-y-[7px] rotate-45' : ''}`}
+                className={cx(
+                  'absolute left-0 top-0 h-0.5 w-5 bg-ink transition-transform duration-200',
+                  open && 'translate-y-[7px] rotate-45',
+                )}
               />
               <span
-                className={`absolute left-0 top-[6px] h-0.5 w-5 bg-ink transition-opacity ${open ? 'opacity-0' : ''}`}
+                className={cx(
+                  'absolute left-0 top-[6px] h-0.5 w-5 bg-ink transition-opacity duration-200',
+                  open && 'opacity-0',
+                )}
               />
               <span
-                className={`absolute bottom-0 left-0 h-0.5 w-5 bg-ink transition-transform ${open ? '-translate-y-[7px] -rotate-45' : ''}`}
+                className={cx(
+                  'absolute bottom-0 left-0 h-0.5 w-5 bg-ink transition-transform duration-200',
+                  open && '-translate-y-[7px] -rotate-45',
+                )}
               />
             </span>
           </button>
         </div>
       </div>
 
-      {/* Menu mobile xổ xuống */}
-      {open && (
-        <nav className="border-t-2 border-ink/60 bg-cream px-4 py-3 md:hidden">
-          <ul className="flex flex-col gap-1">
-            {NAV.map((item) => (
-              <li key={item.label}>
-                <a
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-2 text-sm font-semibold text-ink hover:bg-peach"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )}
+      {/* Menu mobile — CSS max-height transition, sempre no DOM per screen reader */}
+      <nav
+        id="mobile-nav"
+        aria-hidden={!open}
+        className={cx(
+          'overflow-hidden border-ink/60 bg-cream transition-[max-height] duration-200 ease-in-out md:hidden',
+          open ? 'max-h-96 border-t-2' : 'max-h-0',
+        )}
+      >
+        <ul className="flex flex-col gap-1 px-4 py-3">
+          {NAV.map((item) => (
+            <li key={item.label}>
+              <a
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="block rounded-lg px-3 py-2 text-sm font-semibold text-ink hover:bg-peach"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
   );
 }

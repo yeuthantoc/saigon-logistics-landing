@@ -4,7 +4,7 @@ import ContactLink from './ContactLink';
 
 export default function CtaBand() {
   return (
-    <section id="bao-gia" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-14 md:py-20">
+    <section id="bao-gia" className="reveal cv-auto mx-auto max-w-6xl scroll-mt-20 px-4 py-14 md:py-20">
       <div className="relative overflow-hidden rounded-3xl border-2 border-ink/60 bg-coral px-6 py-10 text-white shadow-hard-lg sm:px-10 md:py-12">
         {/* hoạ tiết */}
         <div

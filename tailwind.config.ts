@@ -32,8 +32,8 @@ const config: Config = {
         'on-dark': '#c4b5a8',
       },
       fontFamily: {
-        display: ['Bricolage Grotesque', 'system-ui', 'sans-serif'],
-        sans: ['Be Vietnam Pro', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         xl: '12px',

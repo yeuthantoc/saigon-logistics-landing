@@ -1,10 +1,28 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
+import { Bricolage_Grotesque, Be_Vietnam_Pro } from 'next/font/google';
 import { SITE } from '@/lib/site';
 import './globals.css';
 
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+
+// next/font downloads & self-hosts fonts at build time — no Google CDN request at runtime.
+// It also auto-generates font-metric overrides (size-adjust, ascent-override, etc.)
+// on the fallback stack, eliminating layout shift during font swap.
+const fontDisplay = Bricolage_Grotesque({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['700', '800'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const fontSans = Be_Vietnam_Pro({
+  subsets: ['latin', 'vietnamese'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-sans',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -100,7 +118,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi">
+    <html lang="vi" className={`${fontDisplay.variable} ${fontSans.variable}`}>
+      <head>
+        {/* Preconnect to flag CDN so first flag renders without extra DNS round-trip */}
+        <link rel="preconnect" href="https://flagcdn.com" />
+      </head>
       <body className="no-tap-highlight" suppressHydrationWarning>
         {children}
 

@@ -11,7 +11,7 @@ const SHADOWS = [
 
 export default function RouteGrid() {
   return (
-    <section id="tuyen-di" className="mx-auto max-w-6xl px-4 py-14 md:py-20">
+    <section id="tuyen-di" className="reveal cv-auto mx-auto max-w-6xl px-4 py-14 md:py-20">
       <div className="max-w-2xl">
         <h2 className="font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
           Tuyến vận chuyển phổ biến
@@ -39,6 +39,7 @@ export default function RouteGrid() {
               height={36}
               alt=""
               aria-hidden
+              loading="lazy"
               className="rounded"
             />
             <h3 className="mt-3 font-display text-xl font-extrabold text-ink">

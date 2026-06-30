@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="border-t-2 border-ink/60 bg-ink text-on-dark">
+    <footer className="cv-auto border-t-2 border-ink/60 bg-ink text-on-dark">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <span
