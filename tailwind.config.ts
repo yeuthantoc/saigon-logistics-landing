@@ -15,15 +15,15 @@ const config: Config = {
         cream: '#fff6ed',
         ink: '#251a12',
         coral: {
-          DEFAULT: '#ef5226',
-          dark: '#d8420f',
-          light: '#ff8b5e',
+          DEFAULT: '#1a6fa8',
+          dark: '#135585',
+          light: '#5da0cc',
         },
         teal: {
           DEFAULT: '#0e7c6b',
           tint: '#dcf0ec',
         },
-        peach: '#fce9de',
+        peach: '#d4e8f5',
         muted: {
           DEFAULT: '#6b5d52',
           2: '#8a7a6c',

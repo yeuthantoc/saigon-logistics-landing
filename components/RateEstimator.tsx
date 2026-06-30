@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { RATES, RATE_KEYS, flagUrl, estimate, fmtVnd, type RateKey } from '@/lib/rates';
 import { openLeadForm, track } from '@/lib/analytics';
+import { yieldToMain } from '@/lib/yield';
 import { btn } from '@/lib/ui';
 
 export default function RateEstimator() {
@@ -96,8 +97,9 @@ export default function RateEstimator() {
 
       <button
         type="button"
-        onClick={() => {
+        onClick={async () => {
           track('select_content', { content_type: 'estimator', source: 'estimator' });
+          await yieldToMain();
           openLeadForm({ route: country, weight, source: 'estimator' });
         }}
         className={btn('teal', 'mt-4 w-full')}

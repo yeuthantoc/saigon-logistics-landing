@@ -2,10 +2,11 @@
 
 import { ROUTES, flagUrl, fmtShortVnd } from '@/lib/rates';
 import { openLeadForm, track } from '@/lib/analytics';
+import { yieldToMain } from '@/lib/yield';
 
 // Bóng cứng xoay vòng coral / teal.
 const SHADOWS = [
-  'shadow-[6px_6px_0_#ef5226]',
+  'shadow-[6px_6px_0_#1a6fa8]',
   'shadow-[6px_6px_0_#0e7c6b]',
 ];
 
@@ -26,8 +27,9 @@ export default function RouteGrid() {
           <button
             key={r.key}
             type="button"
-            onClick={() => {
+            onClick={async () => {
               track('select_content', { content_type: 'route', source: `route_${r.key}` });
+              await yieldToMain();
               openLeadForm({ route: r.key, source: `route_${r.key}` });
             }}
             className={`group flex flex-col items-start rounded-2xl border-2 border-ink/60 bg-white p-5 text-left transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 ${SHADOWS[i % SHADOWS.length]}`}

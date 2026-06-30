@@ -2,6 +2,7 @@
 
 import { btn, type BtnVariant } from '@/lib/ui';
 import { openLeadForm, track, type LeadPrefill } from '@/lib/analytics';
+import { yieldToMain } from '@/lib/yield';
 
 interface Props extends LeadPrefill {
   children: React.ReactNode;
@@ -22,8 +23,9 @@ export default function LeadButton({
     <button
       type="button"
       className={btn(variant, className)}
-      onClick={() => {
+      onClick={async () => {
         track('select_content', { content_type: 'lead_cta', source });
+        await yieldToMain();
         openLeadForm({ route, weight, source });
       }}
     >

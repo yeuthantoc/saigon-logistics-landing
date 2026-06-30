@@ -73,7 +73,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#ef5226',
+  themeColor: '#1a6fa8',
   width: 'device-width',
   initialScale: 1,
 };
@@ -122,6 +122,27 @@ export default function RootLayout({
       <head>
         {/* Preconnect to flag CDN so first flag renders without extra DNS round-trip */}
         <link rel="preconnect" href="https://flagcdn.com" />
+        {/* Preload the default (US) flag shown above the fold in RateEstimator */}
+        <link rel="preload" as="image" href="https://flagcdn.com/80x60/us.png" />
+        {/* Speculation Rules: prefetch same-origin pages on hover (moderate = ~200ms hover) */}
+        <script
+          type="speculationrules"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              prefetch: [
+                {
+                  where: {
+                    and: [
+                      { href_matches: '/*' },
+                      { not: { href_matches: '/api/*' } },
+                    ],
+                  },
+                  eagerness: 'moderate',
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body className="no-tap-highlight" suppressHydrationWarning>
         {children}
