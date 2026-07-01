@@ -19,7 +19,7 @@ export const SITE = {
   zaloLink: `https://zalo.me/${zaloPhone}`,
 
   // URL gốc (dùng cho metadata, sitemap, OG)
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://saigon-logistics.vercel.app',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://saigonlogs.vercel.app',
 
   email: 'sale@saigon-logistics.vn',
 
