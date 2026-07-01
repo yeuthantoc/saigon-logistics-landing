@@ -381,13 +381,33 @@ Tuần 4:  10 backlinks citation + Wikidata + monitor     (1 giờ/tuần)
 
 ## Phần cần code thêm (backlog)
 
-| Task | File cần tạo/sửa | Ưu tiên |
-|---|---|---|
-| Trang hub `/tuyen` | `app/tuyen/page.tsx` | Cao |
-| Breadcrumb schema | `app/tuyen/[slug]/page.tsx` | Cao |
-| Price schema | `app/tuyen/[slug]/page.tsx` | Cao |
-| OG image động | `app/tuyen/[slug]/opengraph-image.tsx` | Trung bình |
-| Blog route | `app/blog/[slug]/page.tsx` | Trung bình |
-| Freshness timestamp | `components/RouteHighlight.tsx` | Thấp |
-| Trang `/ve-chung-toi` | `app/ve-chung-toi/page.tsx` | Thấp |
-| Trang `/chinh-sach-boi-thuong` | `app/chinh-sach-boi-thuong/page.tsx` | Thấp |
+| Task | File cần tạo/sửa | Ưu tiên | Trạng thái |
+|---|---|---|---|
+| Trang hub `/tuyen` | `app/tuyen/page.tsx` | Cao | ✅ Đã có |
+| Breadcrumb schema | `app/tuyen/[slug]/page.tsx` | Cao | ✅ Đã có |
+| Price schema | `app/tuyen/[slug]/page.tsx` | Cao | ✅ Đã có |
+| LocalBusiness schema (trang chủ) | `app/layout.tsx` | Cao | ✅ Đã thêm |
+| `/tuyen` vào sitemap.xml | `app/sitemap.ts` | Cao | ✅ Đã thêm (thiếu trước đó) |
+| Title tag có năm + số cụ thể | `lib/routes.ts` | Cao | ✅ Đã sửa (cũng fix lỗi trùng "\| SAIGON LOGISTICS" do title template ở layout.tsx) |
+| OG image động | `app/opengraph-image.tsx` + `app/tuyen/[slug]/opengraph-image.tsx` | Trung bình | ✅ Đã thêm (trước đó trỏ tới `/og-image.png` không tồn tại — ảnh OG bị lỗi 404) |
+| Blog route (3 bài) | `app/blog/page.tsx`, `app/blog/[slug]/page.tsx`, `lib/blog.ts` | Trung bình | ✅ Đã thêm |
+| Freshness timestamp | `components/RouteHighlight.tsx` | Thấp | ✅ Đã thêm |
+| Trang `/ve-chung-toi` | `app/ve-chung-toi/page.tsx` | Thấp | ✅ Đã thêm |
+| Trang `/chinh-sach-boi-thuong` | `app/chinh-sach-boi-thuong/page.tsx` | Thấp | ✅ Đã thêm |
+| E-E-A-T: legal info + đối tác vận chuyển | `components/Footer.tsx`, `lib/site.ts` | Thấp | ✅ Đã thêm (dùng placeholder MST/địa chỉ — **cần thay bằng dữ liệu thật**) |
+
+> Toàn bộ backlog code đã hoàn tất (cập nhật 2026-07-01). Đã build + `tsc --noEmit` sạch, smoke-test tất cả route trả về 200.
+
+---
+
+## ⚠️ Việc KHÔNG thể tự động hoá bằng code — cần chủ tài khoản thực hiện
+
+Đây là các bước **bắt buộc** để đạt mục tiêu "top 1 sau 30 ngày index" nhưng đòi hỏi quyền truy cập tài khoản Google/GBP thật (agent không có và không nên tự tạo tài khoản thay bạn):
+
+1. **Deploy lên domain thật** — hiện `NEXT_PUBLIC_SITE_URL` vẫn là placeholder `saigon-logistics.vercel.app`. Cần set domain thật trước khi làm bước 2–3.
+2. **Google Search Console** — verify domain, submit `sitemap.xml`, dùng "URL Inspection → Request Indexing" cho từng URL (Tuần 1, Ngày 1 & 7 trong kế hoạch).
+3. **Google Business Profile** — tạo profile, category, đăng bài, xin review (Tuần 4, Ngày 22). Đây là việc có tác động cao nhất/giờ bỏ ra.
+4. **Backlinks & citations** — Yelp, Foursquare, forum, guest post, Wikidata entity (Tuần 4).
+5. **Cập nhật dữ liệu thật** trước go-live: `SITE.taxCode`, `SITE.address`, `SITE.legalName` trong `lib/site.ts` hiện là placeholder mẫu.
+
+**Vì sao quan trọng:** thứ hạng #1 trên Google phụ thuộc vào việc Google thực sự crawl + index site (chỉ xảy ra sau khi có bước 1–2) và các tín hiệu ngoài trang (backlink, GBP, thời gian) mà không đoạn code nào tạo ra được — đây là giới hạn thực tế của việc tối ưu on-page, không phải thiếu sót kỹ thuật.

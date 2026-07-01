@@ -1,4 +1,5 @@
-﻿import { SITE } from '@/lib/site';
+﻿import Link from 'next/link';
+import { SITE } from '@/lib/site';
 
 export default function Footer() {
   return (
@@ -39,9 +40,36 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-4 py-4 text-xs text-ink-soft/70">
-          © {SITE.name}. Gửi hàng đi Mỹ, Úc, Canada, châu Âu, Nhật, Hàn,
-          Singapore &amp; toàn cầu.
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-6 text-xs leading-relaxed text-ink-soft/80 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <div className="font-semibold text-ink-soft">{SITE.legalName}</div>
+            <div>
+              MST {SITE.taxCode} · {SITE.address}
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="text-ink-soft/60">Đối tác vận chuyển:</span>
+            <span className="font-semibold text-ink-soft">
+              {SITE.carriers.join(' · ')}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs text-ink-soft/70 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            © {SITE.name}. Gửi hàng đi Mỹ, Úc, Canada, châu Âu, Nhật, Hàn,
+            Singapore &amp; toàn cầu.
+          </div>
+          <div className="flex gap-4">
+            <Link href="/ve-chung-toi" className="hover:text-white hover:underline">
+              Về chúng tôi
+            </Link>
+            <Link href="/chinh-sach-boi-thuong" className="hover:text-white hover:underline">
+              Chính sách bồi thường
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

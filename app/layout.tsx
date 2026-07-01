@@ -57,7 +57,6 @@ export const metadata: Metadata = {
     title: 'Gửi hàng đi Mỹ, Úc, Âu & quốc tế | SAIGON LOGISTICS',
     description:
       'Chuyển phát nhanh quốc tế: gửi hàng đi Mỹ, Úc, Canada, châu Âu, Nhật, Hàn, Singapore. Báo giá minh bạch trong 5 phút.',
-    images: [{ url: `${SITE.url}/og-image.png`, width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -83,11 +82,21 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'Organization',
+      '@type': ['Organization', 'LocalBusiness'],
       '@id': `${SITE.url}/#organization`,
       name: SITE.name,
       url: SITE.url,
       slogan: SITE.tagline,
+      image: `${SITE.url}/opengraph-image`,
+      priceRange: '$$',
+      taxID: SITE.taxCode,
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'VN',
+        addressLocality: 'TP. Hồ Chí Minh',
+        streetAddress: SITE.address,
+      },
+      openingHours: 'Mo-Su 07:00-22:00',
       areaServed: ['US', 'AU', 'CA', 'EU', 'GB', 'JP', 'KR', 'SG'],
       contactPoint: {
         '@type': 'ContactPoint',

@@ -30,7 +30,7 @@ export const ROUTES: RouteData[] = [
     eta: '4–6 ngày',
     priceFrom: '290.000₫/kg',
     keyword: 'gửi hàng đi Mỹ',
-    title: 'Gửi Hàng Đi Mỹ (USA) Nhanh & Rẻ | SAIGON LOGISTICS',
+    title: 'Gửi Hàng Đi Mỹ 2026 — Từ 290k/kg, Giao 4–6 Ngày',
     description:
       'Dịch vụ gửi hàng đi Mỹ từ Việt Nam — door-to-door 4–6 ngày, giá từ 290.000₫/kg, lấy hàng tận nơi, hỗ trợ hải quan trọn gói.',
     h1: 'Gửi Hàng Đi Mỹ — nhanh, rẻ, tận cửa',
@@ -68,7 +68,7 @@ export const ROUTES: RouteData[] = [
     eta: '3–5 ngày',
     priceFrom: '250.000₫/kg',
     keyword: 'gửi hàng đi Úc',
-    title: 'Gửi Hàng Đi Úc (Australia) Nhanh & Rẻ | SAIGON LOGISTICS',
+    title: 'Gửi Hàng Đi Úc 2026 — Từ 250k/kg, Giao 3–5 Ngày',
     description:
       'Dịch vụ gửi hàng đi Úc từ Việt Nam — door-to-door 3–5 ngày, giá từ 250.000₫/kg, lấy hàng tận nơi, hỗ trợ hải quan trọn gói.',
     h1: 'Gửi Hàng Đi Úc — đến tay trong 3–5 ngày',
@@ -106,7 +106,7 @@ export const ROUTES: RouteData[] = [
     eta: '5–7 ngày',
     priceFrom: '310.000₫/kg',
     keyword: 'gửi hàng đi Canada',
-    title: 'Gửi Hàng Đi Canada Nhanh & Rẻ | SAIGON LOGISTICS',
+    title: 'Gửi Hàng Đi Canada 2026 — Từ 310k/kg, Giao 5–7 Ngày',
     description:
       'Dịch vụ gửi hàng đi Canada từ Việt Nam — door-to-door 5–7 ngày, giá từ 310.000₫/kg, lấy hàng tận nơi, hỗ trợ hải quan trọn gói.',
     h1: 'Gửi Hàng Đi Canada — door-to-door 5–7 ngày',
@@ -144,7 +144,7 @@ export const ROUTES: RouteData[] = [
     eta: '4–6 ngày',
     priceFrom: '270.000₫/kg',
     keyword: 'gửi hàng đi châu Âu',
-    title: 'Gửi Hàng Đi Châu Âu (EU/UK) Nhanh & Rẻ | SAIGON LOGISTICS',
+    title: 'Gửi Hàng Đi Châu Âu 2026 — Từ 270k/kg, Giao 4–6 Ngày',
     description:
       'Dịch vụ gửi hàng đi châu Âu từ Việt Nam — door-to-door 4–6 ngày, giá từ 270.000₫/kg, phủ 30+ quốc gia EU và UK.',
     h1: 'Gửi Hàng Đi Châu Âu — 30+ quốc gia, 4–6 ngày',
@@ -182,7 +182,7 @@ export const ROUTES: RouteData[] = [
     eta: '2–4 ngày',
     priceFrom: '190.000₫/kg',
     keyword: 'gửi hàng đi Nhật Hàn',
-    title: 'Gửi Hàng Đi Nhật Bản & Hàn Quốc Nhanh & Rẻ | SAIGON LOGISTICS',
+    title: 'Gửi Hàng Đi Nhật & Hàn 2026 — Từ 190k/kg, Giao 2–4 Ngày',
     description:
       'Dịch vụ gửi hàng đi Nhật, Hàn từ Việt Nam — door-to-door 2–4 ngày, giá từ 190.000₫/kg, lấy hàng tận nơi.',
     h1: 'Gửi Hàng Đi Nhật & Hàn — chỉ 2–4 ngày',
@@ -220,7 +220,7 @@ export const ROUTES: RouteData[] = [
     eta: '2–3 ngày',
     priceFrom: '160.000₫/kg',
     keyword: 'gửi hàng đi Singapore',
-    title: 'Gửi Hàng Đi Singapore Nhanh & Rẻ | SAIGON LOGISTICS',
+    title: 'Gửi Hàng Đi Singapore 2026 — Từ 160k/kg, Giao 2–3 Ngày',
     description:
       'Dịch vụ gửi hàng đi Singapore từ Việt Nam — door-to-door 2–3 ngày, giá từ 160.000₫/kg, tuyến nhanh nhất Đông Nam Á.',
     h1: 'Gửi Hàng Đi Singapore — tuyến nhanh nhất, 2–3 ngày',

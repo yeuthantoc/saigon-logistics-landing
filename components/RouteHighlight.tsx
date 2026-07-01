@@ -25,6 +25,10 @@ export default function RouteHighlight({ route, rate }: Props) {
         <h2 className="font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
           Tuyến {route.country}
         </h2>
+        <p className="mt-2 text-sm text-muted-2">
+          <time dateTime="2026-07">Cập nhật: Tháng 7/2026</time> · Giá tham khảo, liên hệ để
+          báo giá chính xác
+        </p>
 
         <div className="mt-8 rounded-2xl border-2 border-ink bg-white p-6 shadow-hard md:p-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-10">
