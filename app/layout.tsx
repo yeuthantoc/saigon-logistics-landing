@@ -7,6 +7,7 @@ import './globals.css';
 
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+const GOOGLE_SITE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 // next/font downloads & self-hosts fonts at build time — no Google CDN request at runtime.
 // It also auto-generates font-metric overrides (size-adjust, ascent-override, etc.)
@@ -69,6 +70,9 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
+  ...(GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: GOOGLE_SITE_VERIFICATION } }
+    : {}),
   category: 'logistics',
 };
 
