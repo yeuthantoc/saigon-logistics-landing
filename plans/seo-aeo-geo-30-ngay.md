@@ -398,14 +398,29 @@ Tuần 4:  10 backlinks citation + Wikidata + monitor     (1 giờ/tuần)
 
 > Toàn bộ backlog code đã hoàn tất (cập nhật 2026-07-01). Đã build + `tsc --noEmit` sạch, smoke-test tất cả route trả về 200.
 
+### Đã deploy & submit index (2026-07-01)
+
+Phát hiện thêm 1 lỗi nghiêm trọng: site đã **được deploy production thật** tại
+`https://saigonlogs.vercel.app` (qua Vercel, project `yeuthantocs-projects/saigonlogs`)
+nhưng biến `NEXT_PUBLIC_SITE_URL` chưa được set trên Vercel → toàn bộ canonical tag,
+`sitemap.xml`, OG tag đang trỏ vào domain giả `saigon-logistics.vercel.app` (không tồn tại).
+Điều này có nghĩa **nếu đã từng submit sitemap lên GSC trước đó thì sitemap đó trỏ sai domain
+hoàn toàn** — cần submit lại sau khi đọc mục dưới đây.
+
+Đã xử lý trong phiên này:
+- ✅ Set `NEXT_PUBLIC_SITE_URL=https://saigonlogs.vercel.app` trên Vercel (production env) + sửa fallback mặc định trong code.
+- ✅ Commit + push toàn bộ backlog SEO lên `origin/main`, deploy production 2 lần (fix domain + code mới).
+- ✅ Xác nhận `sitemap.xml`, `robots.txt`, canonical tag trên site live đều đúng domain thật.
+- ✅ Thêm key xác minh **IndexNow** (`public/691fb9d335b5bd5aa099f16fc01d6d57.txt`) và submit toàn bộ 14 URL qua `https://api.indexnow.org/indexnow` (phản hồi `202 Accepted`). IndexNow được Bing, Yandex và một số engine khác tiêu thụ **không cần đăng nhập tài khoản** — bổ sung cho GSC (Google không dùng IndexNow) nhưng giúp index nhanh hơn trên các engine khác.
+
 ---
 
 ## ⚠️ Việc KHÔNG thể tự động hoá bằng code — cần chủ tài khoản thực hiện
 
 Đây là các bước **bắt buộc** để đạt mục tiêu "top 1 sau 30 ngày index" nhưng đòi hỏi quyền truy cập tài khoản Google/GBP thật (agent không có và không nên tự tạo tài khoản thay bạn):
 
-1. **Deploy lên domain thật** — hiện `NEXT_PUBLIC_SITE_URL` vẫn là placeholder `saigon-logistics.vercel.app`. Cần set domain thật trước khi làm bước 2–3.
-2. **Google Search Console** — verify domain, submit `sitemap.xml`, dùng "URL Inspection → Request Indexing" cho từng URL (Tuần 1, Ngày 1 & 7 trong kế hoạch).
+1. ~~Deploy lên domain thật~~ — ✅ đã xong, xem mục "Đã deploy & submit index" ở trên. Domain thật: `https://saigonlogs.vercel.app`.
+2. **Google Search Console** — verify domain (`saigonlogs.vercel.app`), submit `sitemap.xml`, dùng "URL Inspection → Request Indexing" cho từng URL (Tuần 1, Ngày 1 & 7 trong kế hoạch). **Đây là bước quan trọng nhất còn thiếu** — không thể tự động hoá vì cần đăng nhập Google account của bạn.
 3. **Google Business Profile** — tạo profile, category, đăng bài, xin review (Tuần 4, Ngày 22). Đây là việc có tác động cao nhất/giờ bỏ ra.
 4. **Backlinks & citations** — Yelp, Foursquare, forum, guest post, Wikidata entity (Tuần 4).
 5. **Cập nhật dữ liệu thật** trước go-live: `SITE.taxCode`, `SITE.address`, `SITE.legalName` trong `lib/site.ts` hiện là placeholder mẫu.
