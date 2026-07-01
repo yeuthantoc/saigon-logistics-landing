@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Bricolage_Grotesque, Be_Vietnam_Pro } from 'next/font/google';
 import { SITE } from '@/lib/site';
+import FloatingContact from '@/components/FloatingContact';
 import './globals.css';
 
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
@@ -144,8 +145,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="no-tap-highlight" suppressHydrationWarning>
+      <body className="no-tap-highlight pb-[72px] md:pb-0" suppressHydrationWarning>
         {children}
+
+        <FloatingContact />
 
         <script
           type="application/ld+json"
