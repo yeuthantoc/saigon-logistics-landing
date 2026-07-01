@@ -36,7 +36,7 @@ export default function Header() {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm font-semibold text-ink/80 transition-colors hover:text-coral"
+              className="relative text-sm font-semibold text-ink/80 transition-colors duration-200 hover:text-coral active:text-coral/70 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-coral hover:after:scale-x-100 motion-safe:after:transition-transform motion-safe:after:duration-200"
             >
               {item.label}
             </a>
@@ -105,7 +105,7 @@ export default function Header() {
               <a
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-lg px-3 py-2 text-sm font-semibold text-ink hover:bg-peach"
+                className="block rounded-lg px-3 py-2 text-sm font-semibold text-ink transition-[background-color,color,transform] duration-150 hover:bg-peach hover:text-coral motion-safe:active:scale-[0.97]"
               >
                 {item.label}
               </a>
