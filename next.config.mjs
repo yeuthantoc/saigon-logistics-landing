@@ -3,6 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  // Bắt buộc cho @opennextjs/cloudflare khi build Next tách rồi bundle với
+  // `--skipNextBuild` (opennext đọc .next/standalone).
+  output: 'standalone',
 };
 
 export default nextConfig;

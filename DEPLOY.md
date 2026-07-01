@@ -10,17 +10,25 @@ Deploy command `npx wrangler versions upload` cần một **Worker entry-point**
 Adapter `opennextjs-cloudflare build` sẽ chạy `next build` **rồi** bundle thành
 `.open-next/worker.js` + `.open-next/assets/` mà wrangler đọc qua `wrangler.jsonc`.
 
-## Cấu hình cần đổi trên Cloudflare Dashboard
+## Cấu hình build/deploy — KHÔNG cần đổi gì trên Dashboard
 
-**Workers & Pages → (project) → Settings → Build**:
+Script `npm run build` đã tự chứa: chạy `next build` **rồi** bundle sang
+`.open-next/worker.js` + `.open-next/assets/`. Vì vậy pipeline mặc định chạy đúng:
 
-| Mục | Giá trị |
-|---|---|
-| **Build command** | `npx opennextjs-cloudflare build` |
-| **Deploy command** | `npx wrangler versions upload` *(giữ nguyên)* |
+| Mục | Giá trị | Ghi chú |
+|---|---|---|
+| **Build command** | `npm run build` | giữ nguyên — đã bao gồm bước OpenNext |
+| **Deploy command** | `npx wrangler versions upload` | giữ nguyên — đọc `wrangler.jsonc` |
 
-> Deploy command đọc `wrangler.jsonc` → `main: .open-next/worker.js` +
-> `assets.directory: .open-next/assets`. Không cần sửa gì thêm.
+Chi tiết script:
+
+```jsonc
+"build": "next build && opennextjs-cloudflare build --skipNextBuild"
+```
+
+> ⚠️ KHÔNG đặt `build` = `opennextjs-cloudflare build` (không có `--skipNextBuild`)
+> vì lệnh đó lại gọi `npm run build` → **đệ quy vô hạn**. Phải chạy `next build`
+> trước rồi bundle với `--skipNextBuild`. Next config cũng cần `output: 'standalone'`.
 
 ## Biến môi trường trên Cloudflare
 
