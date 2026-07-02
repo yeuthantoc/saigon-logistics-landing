@@ -413,16 +413,40 @@ hoàn toàn** — cần submit lại sau khi đọc mục dưới đây.
 - ✅ Xác nhận `sitemap.xml`, `robots.txt`, canonical tag trên site live đều đúng domain thật.
 - ✅ Thêm key xác minh **IndexNow** (`public/691fb9d335b5bd5aa099f16fc01d6d57.txt`) và submit toàn bộ 14 URL qua `https://api.indexnow.org/indexnow` (phản hồi `202 Accepted`). IndexNow được Bing, Yandex và một số engine khác tiêu thụ **không cần đăng nhập tài khoản** — bổ sung cho GSC (Google không dùng IndexNow) nhưng giúp index nhanh hơn trên các engine khác.
 
+### Chuyển domain chính thức sang Cloudflare (2026-07-02)
+
+Site đã migrate từ Vercel sang **Cloudflare Workers** (adapter `@opennextjs/cloudflare`,
+kèm admin dashboard + Supabase). Quyết định: **domain chính thức =
+`https://saigon-logistics-landing.lynh-huynhhoang.workers.dev`**.
+
+Đã xử lý trong phiên này:
+- ✅ Xác nhận `NEXT_PUBLIC_SITE_URL` trên Cloudflare đúng domain mới — canonical,
+  `sitemap.xml`, `robots.txt` trên bản live đều tự trỏ đúng.
+- ✅ Submit lại **IndexNow** cho domain mới: 15 URL (thêm `/theo-doi-don` so với lần
+  trước), phản hồi `202 Accepted`. Key file cũ vẫn dùng được vì nằm trong repo.
+- ⚠️ Phát hiện bản Vercel cũ (`saigonlogs.vercel.app`) **vẫn sống** với code cũ →
+  duplicate content. Cần tắt (xem mục dưới).
+
 ---
 
 ## ⚠️ Việc KHÔNG thể tự động hoá bằng code — cần chủ tài khoản thực hiện
 
-Đây là các bước **bắt buộc** để đạt mục tiêu "top 1 sau 30 ngày index" nhưng đòi hỏi quyền truy cập tài khoản Google/GBP thật (agent không có và không nên tự tạo tài khoản thay bạn):
+Đây là các bước **bắt buộc** để đạt mục tiêu "top 1 sau 30 ngày index" nhưng đòi hỏi quyền truy cập tài khoản Google/GBP/Vercel thật (agent không có và không nên tự tạo tài khoản thay bạn):
 
-1. ~~Deploy lên domain thật~~ — ✅ đã xong, xem mục "Đã deploy & submit index" ở trên. Domain thật: `https://saigonlogs.vercel.app`.
-2. **Google Search Console** — verify domain (`saigonlogs.vercel.app`), submit `sitemap.xml`, dùng "URL Inspection → Request Indexing" cho từng URL (Tuần 1, Ngày 1 & 7 trong kế hoạch). **Đây là bước quan trọng nhất còn thiếu** — không thể tự động hoá vì cần đăng nhập Google account của bạn.
-3. **Google Business Profile** — tạo profile, category, đăng bài, xin review (Tuần 4, Ngày 22). Đây là việc có tác động cao nhất/giờ bỏ ra.
-4. **Backlinks & citations** — Yelp, Foursquare, forum, guest post, Wikidata entity (Tuần 4).
-5. **Cập nhật dữ liệu thật** trước go-live: `SITE.taxCode`, `SITE.address`, `SITE.legalName` trong `lib/site.ts` hiện là placeholder mẫu.
+1. **Tắt project Vercel cũ** — `saigonlogs.vercel.app` vẫn đang chạy code cũ, cạnh
+   tranh duplicate content với domain chính. Vào vercel.com → project `saigonlogs`
+   → Settings → **Delete Project** (hoặc Pause). Làm càng sớm càng tốt.
+2. **Set env còn thiếu trên Cloudflare** (Build variables) rồi redeploy — hiện
+   production đang chạy **số Zalo ảo `0901234567`** trong khi mọi CTA đã dồn về Zalo:
+   `NEXT_PUBLIC_ZALO_PHONE`, `NEXT_PUBLIC_HOTLINE`, `NEXT_PUBLIC_TAX_CODE`,
+   `NEXT_PUBLIC_LEGAL_NAME`, `NEXT_PUBLIC_ADDRESS`, `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`.
+3. **Google Search Console** — verify domain `saigon-logistics-landing.lynh-huynhhoang.workers.dev`
+   (qua env `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` ở bước 2), submit `sitemap.xml`,
+   "URL Inspection → Request Indexing" cho 15 URL. **Bước quan trọng nhất còn thiếu.**
+4. **Google Business Profile** — tạo profile, category, đăng bài, xin review (Tuần 4, Ngày 22). Việc có tác động cao nhất/giờ bỏ ra.
+5. **Backlinks & citations** — Yelp, Foursquare, forum, guest post, Wikidata entity (Tuần 4).
+6. **(Khuyến nghị mạnh)** Mua domain riêng (`.vn`/`.com`) gắn vào Cloudflare Workers —
+   domain `*.workers.dev` khó xây thương hiệu/backlink lâu dài. Làm sớm để chỉ phải
+   re-index một lần; sau khi gắn nhớ cập nhật `NEXT_PUBLIC_SITE_URL` + GSC + IndexNow.
 
-**Vì sao quan trọng:** thứ hạng #1 trên Google phụ thuộc vào việc Google thực sự crawl + index site (chỉ xảy ra sau khi có bước 1–2) và các tín hiệu ngoài trang (backlink, GBP, thời gian) mà không đoạn code nào tạo ra được — đây là giới hạn thực tế của việc tối ưu on-page, không phải thiếu sót kỹ thuật.
+**Vì sao quan trọng:** thứ hạng #1 trên Google phụ thuộc vào việc Google thực sự crawl + index site (chỉ xảy ra sau khi có bước 3) và các tín hiệu ngoài trang (backlink, GBP, thời gian) mà không đoạn code nào tạo ra được — đây là giới hạn thực tế của việc tối ưu on-page, không phải thiếu sót kỹ thuật.
