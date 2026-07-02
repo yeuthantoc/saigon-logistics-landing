@@ -124,13 +124,14 @@ export default function LeadForm() {
       }}
     >
       <div className="flex min-h-full w-full items-end justify-center sm:items-center sm:p-4">
-        <div className="relative w-full max-w-md rounded-t-3xl border-2 border-ink bg-cream p-5 shadow-hard-lg sm:rounded-3xl sm:p-6">
+        {/* Bottom sheet mobile: pb cộng safe-area để nút submit không dính home indicator iPhone */}
+        <div className="relative w-full max-w-md rounded-t-3xl border-2 border-ink bg-cream p-5 pb-[calc(1.25rem_+_env(safe-area-inset-bottom))] shadow-hard-lg sm:rounded-3xl sm:p-6 sm:pb-6">
           {/* Nút đóng */}
           <button
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Đóng"
-            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-lg border-2 border-ink bg-white text-lg font-bold shadow-hard-xs hover:bg-peach"
+            className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-lg border-2 border-ink bg-white text-lg font-bold shadow-hard-xs hover:bg-peach"
           >
             ✕
           </button>
@@ -140,7 +141,7 @@ export default function LeadForm() {
               <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-ink bg-teal text-3xl text-white shadow-hard-sm">
                 ✓
               </div>
-              <h2 className="mt-4 font-display text-2xl font-extrabold text-ink">
+              <h2 className="mt-4 font-display text-2xl font-bold text-ink">
                 Đã nhận thông tin!
               </h2>
               <p className="mt-2 text-muted">
@@ -167,7 +168,7 @@ export default function LeadForm() {
           ) : (
             <>
               <div className="pr-10">
-                <h2 id="lead-title" className="font-display text-2xl font-extrabold text-ink">
+                <h2 id="lead-title" className="font-display text-2xl font-bold text-ink">
                   Nhận báo giá trong 5 phút
                 </h2>
                 <p className="mt-1 text-sm text-muted">

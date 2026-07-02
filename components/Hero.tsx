@@ -16,7 +16,8 @@ export default function Hero() {
             ngày
           </span>
 
-          <h1 className="mt-5 font-display text-[2.6rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl md:text-[2.9rem] lg:text-[3rem]">
+          {/* Mobile: cỡ vừa màn 375px + leading 1.15 đủ chỗ cho dấu chồng tầng (ề, ữ) */}
+          <h1 className="mt-5 font-display text-[2.15rem] font-extrabold leading-[1.15] tracking-tight text-ink sm:text-5xl sm:leading-[1.1] md:text-[2.9rem] lg:text-[3rem]">
             Gửi đồ đi nước ngoài, cứ để{' '}
             <span className="inline-block -rotate-[1.5deg] rounded-xl border-2 border-ink bg-coral px-2.5 py-0.5 text-white shadow-hard-sm">
               tụi mình lo!

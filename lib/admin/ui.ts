@@ -3,8 +3,9 @@
 // Viết literal đầy đủ để Tailwind không purge nhầm.
 
 // Input / select / textarea
+// text-base trên mobile (≥16px) để iOS Safari không tự zoom khi focus; sm: thu về 14px.
 export const FIELD =
-  'w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-sans text-ink placeholder:text-slate-400 focus:outline-none focus:border-coral focus:ring-1 focus:ring-coral disabled:opacity-60';
+  'w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-base sm:text-sm font-sans text-ink placeholder:text-slate-400 focus:outline-none focus:border-coral focus:ring-1 focus:ring-coral disabled:opacity-60';
 
 // Select nhỏ dùng inline trong bảng
 export const FIELD_SM =

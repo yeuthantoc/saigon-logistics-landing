@@ -37,7 +37,7 @@ export default function OtherRoutes({ currentSlug }: Props) {
                   loading="lazy"
                   className="rounded"
                 />
-                <h3 className="mt-3 font-display text-xl font-extrabold text-ink">
+                <h3 className="mt-3 font-display text-xl font-bold text-ink">
                   {r.country}
                 </h3>
                 <p className="mt-1 text-sm font-medium text-muted">

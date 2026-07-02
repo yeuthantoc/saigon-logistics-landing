@@ -29,7 +29,7 @@ export default function HeroTuyen({ slug: _slug, country, eta, priceFrom, h1, in
             Door-to-door · {eta} · từ {priceFrom}
           </div>
 
-          <h1 className="mt-5 font-display text-[2.4rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl md:text-[2.7rem]">
+          <h1 className="mt-5 font-display text-[2rem] font-extrabold leading-[1.15] tracking-tight text-ink sm:text-5xl sm:leading-[1.1] md:text-[2.7rem]">
             {h1}
           </h1>
 

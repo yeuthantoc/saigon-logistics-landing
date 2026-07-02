@@ -29,7 +29,7 @@ export default function ProcessSteps() {
                     BƯỚC {i + 1}
                   </span>
                 </div>
-                <h3 className="mt-4 font-display text-lg font-extrabold text-white">
+                <h3 className="mt-4 font-display text-lg font-bold text-white">
                   {s.title}
                 </h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">

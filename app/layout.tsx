@@ -12,8 +12,10 @@ const GOOGLE_SITE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATIO
 // next/font downloads & self-hosts fonts at build time — no Google CDN request at runtime.
 // It also auto-generates font-metric overrides (size-adjust, ascent-override, etc.)
 // on the fallback stack, eliminating layout shift during font swap.
+// QUAN TRỌNG: subset 'vietnamese' bắt buộc — thiếu nó, ký tự có dấu (ữ, ề, ộ…)
+// rơi về font hệ thống (SF Pro trên iPhone) → heading render lai 2 font.
 const fontDisplay = Bricolage_Grotesque({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin', 'latin-ext', 'vietnamese'],
   weight: ['700', '800'],
   variable: '--font-display',
   display: 'swap',
@@ -80,6 +82,9 @@ export const viewport: Viewport = {
   themeColor: '#ef5226',
   width: 'device-width',
   initialScale: 1,
+  // viewport-fit=cover: để env(safe-area-inset-*) hoạt động trên iPhone
+  // (thanh liên hệ đáy + bottom sheet cần né home indicator).
+  viewportFit: 'cover',
 };
 
 const jsonLd = {
@@ -158,7 +163,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="no-tap-highlight pb-[72px] md:pb-0" suppressHydrationWarning>
+      {/* pb = chiều cao thanh liên hệ đáy + safe-area (home indicator iPhone) */}
+      <body
+        className="no-tap-highlight pb-[calc(72px_+_env(safe-area-inset-bottom))] md:pb-0"
+        suppressHydrationWarning
+      >
         {children}
 
         <FloatingContact />

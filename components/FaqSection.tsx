@@ -35,7 +35,7 @@ export default function FaqSection({ faqs }: Props) {
             key={q}
             className="group rounded-2xl border-2 border-ink bg-white shadow-hard-sm"
           >
-            <summary className="flex cursor-pointer select-none list-none items-center justify-between gap-4 px-5 py-4 font-display text-base font-extrabold text-ink [&::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer select-none list-none items-center justify-between gap-4 px-5 py-4 font-display text-base font-bold text-ink [&::-webkit-details-marker]:hidden">
               <span>{q}</span>
               <span
                 aria-hidden

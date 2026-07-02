@@ -24,7 +24,7 @@ export default function RateEstimator({ defaultCountry = 'us' }: Props) {
           🧮
         </span>
         <div>
-          <h2 className="font-display text-xl font-extrabold text-ink">
+          <h2 className="font-display text-xl font-bold text-ink">
             Ước tính cước nhanh
           </h2>
           <p className="mt-0.5 text-sm text-muted">

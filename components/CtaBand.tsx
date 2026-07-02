@@ -16,7 +16,7 @@ export default function CtaBand() {
             <span className="emoji">⏱</span> Phản hồi trong 5 phút — kể cả ngoài giờ
           </span>
 
-          <h2 className="mt-4 font-display text-[2rem] font-extrabold leading-tight tracking-tight sm:text-[2.1rem]">
+          <h2 className="mt-4 font-display text-[1.75rem] font-extrabold leading-[1.2] tracking-tight sm:text-[2.1rem] sm:leading-tight">
             Cần báo giá cước hôm nay?
           </h2>
           <p className="mt-2 text-lg text-white/90">

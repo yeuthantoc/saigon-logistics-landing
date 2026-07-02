@@ -64,7 +64,7 @@ export default function Header() {
             aria-label={open ? 'Đóng menu' : 'Mở menu'}
             aria-expanded={open}
             aria-controls="mobile-nav"
-            className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-ink bg-white shadow-hard-xs md:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-xl border-2 border-ink bg-white shadow-hard-xs md:hidden"
           >
             <span className="relative block h-3.5 w-5">
               <span
@@ -105,7 +105,7 @@ export default function Header() {
               <a
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-lg px-3 py-2 text-sm font-semibold text-ink transition-[background-color,color,transform] duration-150 hover:bg-peach hover:text-coral motion-safe:active:scale-[0.97]"
+                className="block rounded-lg px-3 py-3 text-base font-semibold text-ink transition-[background-color,color,transform] duration-150 hover:bg-peach hover:text-coral motion-safe:active:scale-[0.97]"
               >
                 {item.label}
               </a>

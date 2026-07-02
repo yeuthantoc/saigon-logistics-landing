@@ -31,7 +31,7 @@ export default function Audience() {
               >
                 {a.icon}
               </span>
-              <h3 className="mt-4 font-display text-lg font-extrabold leading-snug text-ink">
+              <h3 className="mt-4 font-display text-lg font-bold leading-snug text-ink">
                 {a.title}
               </h3>
               <p className="mt-1.5 text-sm leading-relaxed text-ink/80">
