@@ -5,22 +5,6 @@
 -- =============================================================
 
 -- -------------------------------------------------------------
--- 0. Helper: kiểm tra role admin (SECURITY DEFINER để không đệ quy RLS)
--- -------------------------------------------------------------
--- Vì policy trên bảng profiles cần truy vấn chính profiles để biết role,
--- ta dùng hàm security definer (bỏ qua RLS) để tránh vòng lặp policy.
-create or replace function public.is_admin()
-returns boolean
-language sql
-security definer
-set search_path = public
-as $$
-  select exists (
-    select 1 from public.profiles where id = auth.uid() and role = 'admin'
-  );
-$$;
-
--- -------------------------------------------------------------
 -- 1. profiles (thông tin sale/admin) — 1-1 với auth.users
 -- -------------------------------------------------------------
 create table if not exists public.profiles (
@@ -145,6 +129,22 @@ $$;
 drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created after insert on auth.users
   for each row execute function public.handle_new_user();
+
+-- -------------------------------------------------------------
+-- 8b. Helper: kiểm tra role admin (SECURITY DEFINER để không đệ quy RLS)
+--     Đặt SAU khi bảng profiles tồn tại: hàm `language sql` được Postgres
+--     kiểm tra thân hàm ngay lúc tạo, nên profiles phải có trước.
+-- -------------------------------------------------------------
+create or replace function public.is_admin()
+returns boolean
+language sql
+security definer
+set search_path = public
+as $$
+  select exists (
+    select 1 from public.profiles where id = auth.uid() and role = 'admin'
+  );
+$$;
 
 -- -------------------------------------------------------------
 -- 9. RLS
