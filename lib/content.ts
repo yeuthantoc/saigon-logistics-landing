@@ -74,5 +74,5 @@ export const NAV = [
   { label: 'Bảng giá', href: '#tuyen-di' },
   { label: 'Tuyến đi', href: '#tuyen-di' },
   { label: 'Dịch vụ', href: '#dich-vu' },
-  { label: 'Theo dõi đơn', href: '#theo-doi' },
+  { label: 'Theo dõi đơn', href: '/theo-doi-don' },
 ] as const;

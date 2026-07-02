@@ -17,6 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    {
+      url: `${SITE.url}/theo-doi-don`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
     ...ROUTES.map((r) => ({
       url: `${SITE.url}/tuyen/${r.slug}`,
       lastModified: new Date(),
