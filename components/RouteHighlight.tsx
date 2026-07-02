@@ -2,6 +2,7 @@
 
 import { flagUrl, type Rate } from '@/lib/rates';
 import { btn, CHIP } from '@/lib/ui';
+import { SITE } from '@/lib/site';
 import { openLeadForm, track } from '@/lib/analytics';
 import { yieldToMain } from '@/lib/yield';
 import type { RouteData } from '@/lib/routes';
@@ -69,11 +70,29 @@ export default function RouteHighlight({ route, rate }: Props) {
               </ul>
             </div>
 
-            {/* CTA */}
+            {/* CTA — Zalo 1 chạm; form là phương án phụ */}
             <div className="flex shrink-0 flex-col gap-3 md:min-w-[220px]">
+              <a
+                href={SITE.zaloLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={btn('teal', 'btn-shine w-full justify-center')}
+                onClick={() =>
+                  track('contact', {
+                    method: 'zalo',
+                    source: `highlight_${route.rateKey}`,
+                    route: route.rateKey,
+                  })
+                }
+              >
+                <span className="emoji emoji-wiggle">💬</span> Chat Zalo báo giá
+              </a>
+              <p className="text-center text-xs text-muted-2">
+                Phản hồi trong 5 phút — kể cả ngoài giờ
+              </p>
               <button
                 type="button"
-                className={btn('coral', 'w-full justify-center')}
+                className="text-center text-sm font-semibold text-muted underline decoration-ink/30 underline-offset-4 transition-colors hover:text-coral"
                 onClick={async () => {
                   track('select_content', {
                     content_type: 'route_highlight',
@@ -83,11 +102,8 @@ export default function RouteHighlight({ route, rate }: Props) {
                   openLeadForm({ route: route.rateKey, source: `highlight_${route.rateKey}` });
                 }}
               >
-                Nhận báo giá tuyến này →
+                Hoặc để lại SĐT
               </button>
-              <p className="text-center text-xs text-muted-2">
-                Phản hồi trong 5 phút qua Zalo
-              </p>
             </div>
           </div>
         </div>

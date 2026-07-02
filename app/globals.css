@@ -101,10 +101,102 @@
   animation-range: entry 0% entry 25%;
 }
 
+/* ─── Micro-animations cho CTA Zalo ─── */
+
+/* Vệt sáng quét qua nút CTA chính mỗi ~3.6s — hút mắt về nút Zalo */
+@keyframes shine-sweep {
+  0% {
+    transform: translateX(-160%) skewX(-20deg);
+  }
+  55%,
+  100% {
+    transform: translateX(320%) skewX(-20deg);
+  }
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 45%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shine-sweep 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Vòng sóng lan toả quanh nút Zalo nổi — vẽ trên ::before để không đè shadow-hard */
+@keyframes zalo-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(14, 124, 107, 0.5);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 14px rgba(14, 124, 107, 0);
+  }
+}
+
+.zalo-pulse {
+  position: relative;
+}
+
+.zalo-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  animation: zalo-ring 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+/* Emoji 💬 vẫy nhẹ định kỳ */
+@keyframes wiggle {
+  0%,
+  75%,
+  100% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(-12deg);
+  }
+  85% {
+    transform: rotate(10deg);
+  }
+  90% {
+    transform: rotate(-8deg);
+  }
+  95% {
+    transform: rotate(5deg);
+  }
+}
+
+.emoji-wiggle {
+  display: inline-block;
+  animation: wiggle 3s ease-in-out infinite;
+  transform-origin: 70% 70%;
+}
+
 /* Respect user preference — no motion at all */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
-  .reveal-fade {
+  .reveal-fade,
+  .emoji-wiggle {
     animation: none;
+  }
+
+  .btn-shine::after,
+  .zalo-pulse::before {
+    display: none;
   }
 }

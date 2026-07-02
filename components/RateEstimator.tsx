@@ -5,6 +5,7 @@ import { RATES, RATE_KEYS, flagUrl, estimate, fmtVnd, type RateKey } from '@/lib
 import { openLeadForm, track } from '@/lib/analytics';
 import { yieldToMain } from '@/lib/yield';
 import { btn } from '@/lib/ui';
+import { SITE } from '@/lib/site';
 
 interface Props {
   defaultCountry?: RateKey;
@@ -99,6 +100,20 @@ export default function RateEstimator({ defaultCountry = 'us' }: Props) {
         </div>
       </div>
 
+      {/* CTA chính: mở thẳng Zalo — 1 chạm là chat được với sale */}
+      <a
+        href={SITE.zaloLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() =>
+          track('contact', { method: 'zalo', source: 'estimator', route: country, weight })
+        }
+        className={btn('teal', 'btn-shine mt-4 w-full')}
+      >
+        <span className="emoji emoji-wiggle">💬</span> Chốt giá chính xác qua Zalo
+      </a>
+
+      {/* Phương án phụ: để lại SĐT (mở form, giữ prefill tuyến + cân nặng) */}
       <button
         type="button"
         onClick={async () => {
@@ -106,10 +121,11 @@ export default function RateEstimator({ defaultCountry = 'us' }: Props) {
           await yieldToMain();
           openLeadForm({ route: country, weight, source: 'estimator' });
         }}
-        className={btn('teal', 'mt-4 w-full')}
+        className="mt-2.5 w-full text-center text-sm font-semibold text-muted underline decoration-ink/30 underline-offset-4 transition-colors hover:text-coral"
       >
-        <span className="emoji">💬</span> Để sale báo giá chính xác qua Zalo
+        Hoặc để lại SĐT — sale gọi lại ngay
       </button>
+
       <p className="mt-2 text-center text-xs text-muted-2">
         * Giá ước tính, chưa gồm phụ phí theo loại hàng &amp; mùa cao điểm.
       </p>

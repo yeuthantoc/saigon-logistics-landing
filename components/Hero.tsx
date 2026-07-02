@@ -30,10 +30,18 @@ export default function Hero() {
             quan, bạn chỉ việc nhắn Zalo.
           </p>
 
+          {/* CTA chính: Zalo 1 chạm. Form để lại SĐT là phương án phụ bên dưới. */}
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <LeadButton variant="coral" source="hero" className="text-base">
-              Nhận báo giá trong 5 phút →
-            </LeadButton>
+            <ContactLink
+              href={SITE.zaloLink}
+              method="zalo"
+              source="hero"
+              variant="teal"
+              className="btn-shine text-base"
+            >
+              <span className="emoji emoji-wiggle">💬</span> Chat Zalo — báo giá
+              trong 5 phút
+            </ContactLink>
             <ContactLink
               href={`tel:${SITE.hotlineTel}`}
               method="phone"
@@ -44,6 +52,14 @@ export default function Hero() {
               <span className="emoji">📞</span> Hotline {SITE.hotline}
             </ContactLink>
           </div>
+
+          <LeadButton
+            plain
+            source="hero_fallback"
+            className="mt-3 text-sm font-semibold text-muted underline decoration-ink/30 underline-offset-4 transition-colors hover:text-coral"
+          >
+            Không dùng Zalo? Để lại SĐT — sale gọi lại ngay
+          </LeadButton>
 
           <ul className="mt-6 flex flex-wrap gap-2.5">
             {TRUST_CHIPS.map((chip) => (

@@ -31,9 +31,9 @@ export default function FloatingContact() {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => track('contact', { method: 'zalo', source: 'floating_mobile' })}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl border-2 border-ink bg-teal py-3 text-sm font-bold text-white shadow-hard-sm transition-transform duration-100 active:translate-x-[2px] active:translate-y-[2px] active:shadow-hard-xs"
+          className="zalo-pulse flex flex-1 items-center justify-center gap-2 rounded-xl border-2 border-ink bg-teal py-3 text-sm font-bold text-white shadow-hard-sm transition-transform duration-100 active:translate-x-[2px] active:translate-y-[2px] active:shadow-hard-xs"
         >
-          <span className="emoji" aria-hidden>
+          <span className="emoji emoji-wiggle" aria-hidden>
             💬
           </span>
           Chat Zalo
@@ -48,9 +48,9 @@ export default function FloatingContact() {
           rel="noopener noreferrer"
           aria-label="Chat Zalo ngay"
           onClick={() => track('contact', { method: 'zalo', source: 'floating_desktop' })}
-          className="group flex h-14 items-center rounded-full border-2 border-ink bg-teal text-white shadow-hard transition-[box-shadow,transform] duration-150 hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-hard-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2"
+          className="zalo-pulse group flex h-14 items-center rounded-full border-2 border-ink bg-teal text-white shadow-hard transition-[box-shadow,transform] duration-150 hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-hard-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2"
         >
-          <span className="flex h-14 w-14 shrink-0 items-center justify-center text-2xl" aria-hidden>
+          <span className="emoji-wiggle flex h-14 w-14 shrink-0 items-center justify-center text-2xl" aria-hidden>
             💬
           </span>
           <span className="grid grid-cols-[0fr] transition-[grid-template-columns] duration-200 ease-out group-hover:grid-cols-[1fr] group-focus-visible:grid-cols-[1fr]">

@@ -1,7 +1,7 @@
 'use client';
 
 import { SITE } from '@/lib/site';
-import { btn, BADGE } from '@/lib/ui';
+import { BADGE } from '@/lib/ui';
 import { openLeadForm, track } from '@/lib/analytics';
 import { yieldToMain } from '@/lib/yield';
 import { flagUrl, type RateKey } from '@/lib/rates';
@@ -37,18 +37,18 @@ export default function HeroTuyen({ slug: _slug, country, eta, priceFrom, h1, in
             {intro}
           </p>
 
+          {/* CTA chính: Zalo 1 chạm; form để lại SĐT là phương án phụ */}
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <button
-              type="button"
-              className={btn('coral', 'text-base')}
-              onClick={async () => {
-                track('select_content', { content_type: 'lead_cta', source: `hero_tuyen_${rateKey}` });
-                await yieldToMain();
-                openLeadForm({ route: rateKey, source: `hero_tuyen_${rateKey}` });
-              }}
+            <ContactLink
+              href={SITE.zaloLink}
+              method="zalo"
+              source={`hero_tuyen_${rateKey}`}
+              variant="teal"
+              className="btn-shine text-base"
             >
-              Nhận báo giá đi {country} →
-            </button>
+              <span className="emoji emoji-wiggle">💬</span> Chat Zalo — báo giá đi{' '}
+              {country}
+            </ContactLink>
             <ContactLink
               href={`tel:${SITE.hotlineTel}`}
               method="phone"
@@ -59,6 +59,18 @@ export default function HeroTuyen({ slug: _slug, country, eta, priceFrom, h1, in
               <span className="emoji">📞</span> Hotline {SITE.hotline}
             </ContactLink>
           </div>
+
+          <button
+            type="button"
+            className="mt-3 text-sm font-semibold text-muted underline decoration-ink/30 underline-offset-4 transition-colors hover:text-coral"
+            onClick={async () => {
+              track('select_content', { content_type: 'lead_cta', source: `hero_tuyen_${rateKey}` });
+              await yieldToMain();
+              openLeadForm({ route: rateKey, source: `hero_tuyen_${rateKey}` });
+            }}
+          >
+            Không dùng Zalo? Để lại SĐT — sale gọi lại ngay
+          </button>
 
           <div className="mt-6 flex items-center gap-3">
             <img

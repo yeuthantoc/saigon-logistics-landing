@@ -24,9 +24,15 @@ export default function CtaBand() {
           </p>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <LeadButton variant="whiteTeal" source="cta_band" className="text-base">
-              <span className="emoji">💬</span> Chat Zalo ngay
-            </LeadButton>
+            <ContactLink
+              href={SITE.zaloLink}
+              method="zalo"
+              source="cta_band"
+              variant="whiteTeal"
+              className="btn-shine text-base"
+            >
+              <span className="emoji emoji-wiggle">💬</span> Chat Zalo ngay
+            </ContactLink>
             <ContactLink
               href={`tel:${SITE.hotlineTel}`}
               method="phone"
@@ -37,6 +43,14 @@ export default function CtaBand() {
               <span className="emoji">📞</span> {SITE.hotline}
             </ContactLink>
           </div>
+
+          <LeadButton
+            plain
+            source="cta_band_fallback"
+            className="mt-3 text-sm font-semibold text-white/85 underline decoration-white/40 underline-offset-4 transition-colors hover:text-white"
+          >
+            Không dùng Zalo? Để lại SĐT — sale gọi lại ngay
+          </LeadButton>
         </div>
       </div>
     </section>
