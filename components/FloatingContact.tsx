@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { SITE } from '@/lib/site';
 import { track } from '@/lib/analytics';
 
@@ -9,6 +10,12 @@ import { track } from '@/lib/analytics';
  * Desktop: 2 nút tròn nổi góc phải, hiện label khi hover/focus.
  */
 export default function FloatingContact() {
+  const pathname = usePathname();
+
+  // Landing 1a là bản preview với design system riêng (docs/design_handoff_landing_1a)
+  // — không chèn UI của design cũ lên để đối chiếu pixel được chính xác.
+  if (pathname.startsWith('/landing-1a')) return null;
+
   return (
     <>
       {/* Mobile: thanh dính đáy */}

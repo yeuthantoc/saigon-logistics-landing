@@ -23,7 +23,8 @@ const fontDisplay = Bricolage_Grotesque({
 
 const fontSans = Be_Vietnam_Pro({
   subsets: ['latin', 'vietnamese'],
-  weight: ['400', '500', '600', '700'],
+  // '800' cho heading landing 1a (docs/design_handoff_landing_1a) — H1/H2 weight 800
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-sans',
   display: 'swap',
 });
