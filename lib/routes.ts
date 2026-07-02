@@ -32,11 +32,15 @@ export const ROUTES: RouteData[] = [
     keyword: 'gửi hàng đi Mỹ',
     title: 'Gửi Hàng Đi Mỹ 2026 — Từ 290k/kg, Giao 4–6 Ngày',
     description:
-      'Dịch vụ gửi hàng đi Mỹ từ Việt Nam — door-to-door 4–6 ngày, giá từ 290.000₫/kg, lấy hàng tận nơi, hỗ trợ hải quan trọn gói.',
+      'Dịch vụ gửi hàng đi Mỹ từ Việt Nam — door-to-door 4–6 ngày, giá từ 290.000₫/kg, lấy hàng tận nơi tại TP.HCM & Hà Nội, hỗ trợ hải quan trọn gói.',
     h1: 'Gửi Hàng Đi Mỹ — nhanh, rẻ, tận cửa',
     intro:
       'Chuyển phát nhanh từ Việt Nam đi Mỹ (USA) chỉ 4–6 ngày làm việc. SAIGON LOGISTICS lấy hàng tận nhà, đóng gói chuẩn quốc tế, lo trọn thủ tục hải quan Mỹ, giao tận địa chỉ người nhận.',
     faqs: [
+      {
+        q: 'Gửi 1kg hàng đi Mỹ hết bao nhiêu tiền?',
+        a: 'Cước gửi hàng đi Mỹ từ 290.000₫/kg (chưa gồm phụ phí). Hàng 2kg ≈ 700.000₫, hàng 5kg ≈ 1.570.000₫. Báo giá chính xác theo loại hàng trong 5 phút qua Zalo.',
+      },
       {
         q: 'Gửi hàng đi Mỹ mất bao nhiêu ngày?',
         a: 'Thông thường 4–6 ngày làm việc qua dịch vụ express door-to-door.',
@@ -70,11 +74,15 @@ export const ROUTES: RouteData[] = [
     keyword: 'gửi hàng đi Úc',
     title: 'Gửi Hàng Đi Úc 2026 — Từ 250k/kg, Giao 3–5 Ngày',
     description:
-      'Dịch vụ gửi hàng đi Úc từ Việt Nam — door-to-door 3–5 ngày, giá từ 250.000₫/kg, lấy hàng tận nơi, hỗ trợ hải quan trọn gói.',
+      'Dịch vụ gửi hàng đi Úc từ Việt Nam — door-to-door 3–5 ngày, giá từ 250.000₫/kg, lấy hàng tận nơi tại TP.HCM & Hà Nội, hỗ trợ hải quan trọn gói.',
     h1: 'Gửi Hàng Đi Úc — đến tay trong 3–5 ngày',
     intro:
       'Chuyển phát nhanh từ Việt Nam sang Úc (Australia) chỉ 3–5 ngày. Úc kiểm tra hải quan nghiêm ngặt — SAIGON LOGISTICS khai báo đúng, đóng gói chuẩn, hạn chế tối đa rủi ro bị giữ hàng.',
     faqs: [
+      {
+        q: 'Gửi 1kg hàng đi Úc hết bao nhiêu tiền?',
+        a: 'Cước gửi hàng đi Úc từ 250.000₫/kg (chưa gồm phụ phí). Hàng 2kg ≈ 610.000₫, hàng 5kg ≈ 1.360.000₫. Báo giá chính xác theo loại hàng trong 5 phút qua Zalo.',
+      },
       {
         q: 'Gửi hàng đi Úc mất bao lâu?',
         a: '3–5 ngày làm việc qua dịch vụ express.',
@@ -114,6 +122,10 @@ export const ROUTES: RouteData[] = [
       'Chuyển phát nhanh từ Việt Nam sang Canada 5–7 ngày. SAIGON LOGISTICS phủ toàn bộ các tỉnh Canada (Ontario, BC, Quebec, Alberta...), lo thủ tục CBSA, giao tận cửa nhà.',
     faqs: [
       {
+        q: 'Gửi 1kg hàng đi Canada hết bao nhiêu tiền?',
+        a: 'Cước gửi hàng đi Canada từ 310.000₫/kg (chưa gồm phụ phí). Hàng 2kg ≈ 750.000₫, hàng 5kg ≈ 1.680.000₫. Báo giá chính xác theo loại hàng trong 5 phút qua Zalo.',
+      },
+      {
         q: 'Gửi hàng đi Canada mất bao nhiêu ngày?',
         a: '5–7 ngày làm việc qua dịch vụ express.',
       },
@@ -151,6 +163,10 @@ export const ROUTES: RouteData[] = [
     intro:
       'Chuyển phát nhanh từ Việt Nam sang EU và UK: Đức, Pháp, Anh, Hà Lan, Ý, Tây Ban Nha... chỉ 4–6 ngày. Một lần gửi, SAIGON LOGISTICS thông quan EU và giao tận địa chỉ.',
     faqs: [
+      {
+        q: 'Gửi 1kg hàng đi châu Âu hết bao nhiêu tiền?',
+        a: 'Cước gửi hàng đi châu Âu (EU/UK) từ 270.000₫/kg (chưa gồm phụ phí). Hàng 2kg ≈ 660.000₫, hàng 5kg ≈ 1.470.000₫. Báo giá chính xác theo loại hàng trong 5 phút qua Zalo.',
+      },
       {
         q: 'Gửi hàng đi Đức / Anh / Pháp mất bao lâu?',
         a: '4–6 ngày làm việc, tuỳ quốc gia cụ thể.',
@@ -190,6 +206,10 @@ export const ROUTES: RouteData[] = [
       'Tuyến Nhật Bản và Hàn Quốc là tuyến nhanh nhất của SAIGON LOGISTICS — chỉ 2–4 ngày door-to-door. Phù hợp gửi quà, thực phẩm, mỹ phẩm, hàng thương mại cho cộng đồng người Việt đang học và làm việc tại Nhật, Hàn.',
     faqs: [
       {
+        q: 'Gửi 1kg hàng đi Nhật hết bao nhiêu tiền?',
+        a: 'Cước gửi hàng đi Nhật, Hàn từ 190.000₫/kg (chưa gồm phụ phí). Hàng 2kg ≈ 470.000₫, hàng 5kg ≈ 1.040.000₫. Báo giá chính xác theo loại hàng trong 5 phút qua Zalo.',
+      },
+      {
         q: 'Gửi hàng đi Nhật mất bao lâu?',
         a: '2–3 ngày làm việc qua dịch vụ express.',
       },
@@ -227,6 +247,10 @@ export const ROUTES: RouteData[] = [
     intro:
       'Singapore là tuyến gần và nhanh nhất — chỉ 2–3 ngày, giá cạnh tranh từ 160.000₫/kg. SAIGON LOGISTICS lấy hàng tận nơi tại TP.HCM và Hà Nội, thông quan Singapore nhanh gọn, giao tận địa chỉ.',
     faqs: [
+      {
+        q: 'Gửi 1kg hàng đi Singapore hết bao nhiêu tiền?',
+        a: 'Cước gửi hàng đi Singapore từ 160.000₫/kg (chưa gồm phụ phí). Hàng 2kg ≈ 400.000₫, hàng 5kg ≈ 880.000₫. Báo giá chính xác theo loại hàng trong 5 phút qua Zalo.',
+      },
       {
         q: 'Gửi hàng đi Singapore mất bao lâu?',
         a: '2–3 ngày làm việc qua dịch vụ express.',
