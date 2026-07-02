@@ -45,7 +45,7 @@ export default async function OrderDetailPage({
 
   return (
     <div className="space-y-5">
-      <Link href="/admin/don-hang" className="inline-flex items-center gap-1 text-sm font-bold text-muted hover:text-ink">
+      <Link href="/admin/don-hang" className="inline-flex items-center gap-1 text-sm font-semibold text-slate-500 hover:text-ink">
         <ArrowLeft className="h-4 w-4" /> Về danh sách đơn
       </Link>
 
@@ -54,7 +54,7 @@ export default async function OrderDetailPage({
           <h1 className="font-display text-2xl font-extrabold text-ink font-mono">{order.tracking_code}</h1>
           <OrderBadge status={order.status} />
         </div>
-        <a href={`tel:${order.customer_phone}`} className="inline-flex items-center gap-1 rounded-xl border-2 border-ink bg-white px-3 py-2 text-sm font-bold shadow-hard-xs hover:-translate-y-[1px]">
+        <a href={`tel:${order.customer_phone}`} className="inline-flex items-center gap-1 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
           <Phone className="h-4 w-4" /> Gọi khách
         </a>
       </div>
@@ -62,31 +62,31 @@ export default async function OrderDetailPage({
       <div className="grid gap-5 lg:grid-cols-2">
         <div className="space-y-5">
           {/* Thông tin đơn */}
-          <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-hard">
+          <div className="rounded-lg border border-slate-200 bg-white p-4">
             <h3 className="mb-3 font-display text-lg font-bold text-ink">Thông tin đơn — {order.customer_name}</h3>
             <dl className="grid grid-cols-2 gap-y-3 text-sm">
               {info.map(([k, v]) => (
                 <div key={k}>
-                  <dt className="text-xs font-bold uppercase tracking-wide text-muted">{k}</dt>
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">{k}</dt>
                   <dd className="mt-0.5 text-ink">{v}</dd>
                 </div>
               ))}
             </dl>
             <div className="mt-3 grid gap-3 sm:grid-cols-2">
-              <div className="rounded-xl border-2 border-ink/40 bg-cream p-3">
-                <p className="text-xs font-bold uppercase tracking-wide text-muted">Địa chỉ gửi</p>
+              <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Địa chỉ gửi</p>
                 <p className="mt-1 text-sm text-ink">{order.sender_address || '—'}</p>
               </div>
-              <div className="rounded-xl border-2 border-ink/40 bg-cream p-3">
-                <p className="text-xs font-bold uppercase tracking-wide text-muted">Địa chỉ nhận</p>
+              <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Địa chỉ nhận</p>
                 <p className="mt-1 text-sm text-ink">{order.receiver_address || '—'}</p>
               </div>
             </div>
-            {order.note && <p className="mt-3 text-sm text-muted">Ghi chú: {order.note}</p>}
+            {order.note && <p className="mt-3 text-sm text-slate-500">Ghi chú: {order.note}</p>}
           </div>
 
           {/* Timeline */}
-          <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-hard">
+          <div className="rounded-lg border border-slate-200 bg-white p-4">
             <h3 className="mb-4 font-display text-lg font-bold text-ink">Lịch sử trạng thái</h3>
             <Timeline history={order.status_history ?? []} names={names} />
           </div>

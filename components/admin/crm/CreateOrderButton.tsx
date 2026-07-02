@@ -47,7 +47,7 @@ export default function CreateOrderButton({
       <button
         onClick={create}
         disabled={loading}
-        className="inline-flex items-center gap-2 rounded-xl border-2 border-ink bg-teal px-4 py-2 text-sm font-bold text-white shadow-hard-sm hover:-translate-y-[1px] active:translate-y-[1px] disabled:opacity-60"
+        className="inline-flex items-center gap-2 rounded-lg bg-teal px-4 py-2 text-sm font-semibold text-white hover:bg-teal/90 disabled:opacity-60"
       >
         <FilePlus2 className="h-4 w-4" />
         {loading ? 'Đang tạo…' : 'Tạo đơn hàng'}
@@ -61,7 +61,7 @@ export default function CreateOrderButton({
       disabled={loading}
       title="Tạo đơn hàng"
       className={cx(
-        'inline-flex items-center gap-1 rounded-lg border-2 border-ink bg-teal px-2 py-1 text-xs font-bold text-white shadow-hard-xs hover:-translate-y-[1px] active:translate-y-[1px]',
+        'inline-flex items-center gap-1 rounded-md bg-teal px-2 py-1 text-xs font-semibold text-white hover:bg-teal/90',
         loading && 'opacity-60',
       )}
     >

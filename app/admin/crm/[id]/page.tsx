@@ -51,7 +51,7 @@ export default async function LeadDetailPage({
 
   return (
     <div className="space-y-5">
-      <Link href="/admin/crm" className="inline-flex items-center gap-1 text-sm font-bold text-muted hover:text-ink">
+      <Link href="/admin/crm" className="inline-flex items-center gap-1 text-sm font-semibold text-slate-500 hover:text-ink">
         <ArrowLeft className="h-4 w-4" /> Về danh sách
       </Link>
 
@@ -61,10 +61,10 @@ export default async function LeadDetailPage({
           <LeadBadge status={lead.status} />
         </div>
         <div className="flex items-center gap-2">
-          <a href={`tel:${lead.phone}`} className="inline-flex items-center gap-1 rounded-xl border-2 border-ink bg-white px-3 py-2 text-sm font-bold shadow-hard-xs hover:-translate-y-[1px]">
+          <a href={`tel:${lead.phone}`} className="inline-flex items-center gap-1 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
             <Phone className="h-4 w-4" /> Gọi
           </a>
-          <a href={`https://zalo.me/${lead.phone}`} target="_blank" rel="noopener" className="inline-flex items-center gap-1 rounded-xl border-2 border-ink bg-white px-3 py-2 text-sm font-bold shadow-hard-xs hover:-translate-y-[1px]">
+          <a href={`https://zalo.me/${lead.phone}`} target="_blank" rel="noopener" className="inline-flex items-center gap-1 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
             <MessageCircle className="h-4 w-4" /> Zalo
           </a>
           <CreateOrderButton
@@ -85,19 +85,19 @@ export default async function LeadDetailPage({
       <div className="grid gap-5 lg:grid-cols-2">
         {/* Thông tin lead */}
         <div className="space-y-4">
-          <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-hard">
+          <div className="rounded-lg border border-slate-200 bg-white p-4">
             <h3 className="mb-3 font-display text-lg font-bold text-ink">Thông tin khách</h3>
             <dl className="grid grid-cols-2 gap-y-3 text-sm">
               {info.map(([k, v]) => (
                 <div key={k} className="col-span-1">
-                  <dt className="text-xs font-bold uppercase tracking-wide text-muted">{k}</dt>
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">{k}</dt>
                   <dd className="mt-0.5 text-ink">{v}</dd>
                 </div>
               ))}
             </dl>
             {lead.note && (
-              <div className="mt-3 rounded-xl border-2 border-ink/40 bg-cream p-3">
-                <p className="text-xs font-bold uppercase tracking-wide text-muted">Ghi chú của khách</p>
+              <div className="mt-3 rounded-lg border border-slate-200 bg-slate-50 p-3">
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Ghi chú của khách</p>
                 <p className="mt-1 text-sm text-ink">{lead.note}</p>
               </div>
             )}

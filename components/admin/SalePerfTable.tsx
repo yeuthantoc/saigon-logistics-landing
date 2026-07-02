@@ -49,9 +49,9 @@ export default function SalePerfTable({ rows }: { rows: SaleRow[] }) {
   ];
 
   return (
-    <div className="overflow-x-auto rounded-2xl border-2 border-ink bg-white shadow-hard">
+    <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
       <table className="w-full min-w-[640px] border-collapse">
-        <thead className="border-b-2 border-ink bg-cream">
+        <thead className="border-b border-slate-200 bg-slate-50">
           <tr>
             {cols.map((c) => (
               <th key={c.key} className={TH}>
@@ -68,7 +68,7 @@ export default function SalePerfTable({ rows }: { rows: SaleRow[] }) {
         </thead>
         <tbody>
           {sorted.map((r) => (
-            <tr key={r.id} className="border-b border-ink/15 hover:bg-cream/50">
+            <tr key={r.id} className="border-b border-slate-100 last:border-0 hover:bg-slate-50">
               <td className={`${TD} font-semibold`}>{r.name}</td>
               <td className={TD}>{r.assigned}</td>
               <td className={TD}>{r.called}</td>
@@ -79,7 +79,7 @@ export default function SalePerfTable({ rows }: { rows: SaleRow[] }) {
           ))}
           {sorted.length === 0 && (
             <tr>
-              <td className={`${TD} text-center text-muted`} colSpan={6}>
+              <td className={`${TD} text-center text-slate-500`} colSpan={6}>
                 Chưa có dữ liệu sale trong kỳ.
               </td>
             </tr>

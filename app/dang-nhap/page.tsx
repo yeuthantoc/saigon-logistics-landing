@@ -18,7 +18,7 @@ export default async function LoginPage({
   const safeNext = next && next.startsWith('/admin') ? next : '/admin/crm';
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-cream px-4 py-10">
+    <main className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-10">
       <div className="w-full max-w-sm">
         <div className="mb-6 text-center">
           <Link
@@ -27,17 +27,17 @@ export default async function LoginPage({
           >
             {SITE.name}
           </Link>
-          <p className="mt-1 text-sm text-muted">Khu vực quản trị nội bộ</p>
+          <p className="mt-1 text-sm text-slate-500">Khu vực quản trị nội bộ</p>
         </div>
 
-        <div className={`${PANEL} p-6`}>
+        <div className={`${PANEL} p-6 shadow-sm`}>
           <h1 className="mb-4 font-display text-xl font-bold text-ink">
             Đăng nhập
           </h1>
           <LoginForm next={safeNext} />
         </div>
 
-        <p className="mt-4 text-center text-xs text-muted-2">
+        <p className="mt-4 text-center text-xs text-slate-400">
           Chỉ dành cho nhân viên. Quên mật khẩu? Liên hệ quản trị viên.
         </p>
       </div>

@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
-import { btn } from '@/lib/ui';
-import { FIELD, LABEL } from '@/lib/admin/ui';
+import { cx } from '@/lib/ui';
+import { FIELD, LABEL, BTN_PRIMARY } from '@/lib/admin/ui';
 
 export default function LoginForm({ next }: { next: string }) {
   const router = useRouter();
@@ -74,7 +74,7 @@ export default function LoginForm({ next }: { next: string }) {
       </div>
 
       {error && (
-        <p className="rounded-xl border-2 border-ink bg-red-100 px-3 py-2 text-sm font-semibold text-ink">
+        <p className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-medium text-red-700">
           {error}
         </p>
       )}
@@ -82,7 +82,7 @@ export default function LoginForm({ next }: { next: string }) {
       <button
         type="submit"
         disabled={loading}
-        className={btn('coral', 'w-full mt-1 disabled:opacity-60')}
+        className={cx(BTN_PRIMARY, 'w-full mt-1')}
       >
         {loading ? 'Đang đăng nhập…' : 'Đăng nhập'}
       </button>

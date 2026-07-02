@@ -38,14 +38,14 @@ export default function DoanhSoFilters({
 
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <div className="flex flex-wrap gap-1 rounded-xl border-2 border-ink bg-white p-1 shadow-hard-xs">
+      <div className="flex flex-wrap gap-1 rounded-lg border border-slate-200 bg-white p-1">
         {TABS.map((tab) => (
           <button
             key={tab.key}
             onClick={() => setPeriod(tab.key)}
             className={cx(
-              'rounded-lg px-3 py-1.5 text-sm font-bold transition-colors',
-              period === tab.key ? 'bg-coral text-white' : 'text-ink hover:bg-cream',
+              'rounded-md px-3 py-1.5 text-sm font-semibold transition-colors',
+              period === tab.key ? 'bg-coral text-white' : 'text-slate-600 hover:bg-slate-100',
             )}
           >
             {tab.label}
@@ -55,13 +55,15 @@ export default function DoanhSoFilters({
 
       <div className="flex items-center gap-1">
         <input type="date" value={f} onChange={(e) => setF(e.target.value)} className={FIELD_SM} />
-        <span className="text-muted">→</span>
+        <span className="text-slate-400">→</span>
         <input type="date" value={t} onChange={(e) => setT(e.target.value)} className={FIELD_SM} />
         <button
           onClick={applyCustom}
           className={cx(
-            'rounded-lg border-2 border-ink px-3 py-1 text-sm font-bold shadow-hard-xs',
-            period === 'custom' ? 'bg-coral text-white' : 'bg-white text-ink hover:bg-cream',
+            'rounded-md border px-3 py-1 text-sm font-semibold',
+            period === 'custom'
+              ? 'border-coral bg-coral text-white'
+              : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50',
           )}
         >
           Áp dụng

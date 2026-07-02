@@ -1,12 +1,12 @@
 // =============================================================
 // Nhãn + màu badge cho trạng thái lead & đơn hàng, và flow chuyển trạng thái.
 // Class badge viết literal đầy đủ để Tailwind không purge nhầm.
-// Theo design system: viền 2px ink, bóng cứng nhỏ, chữ ink.
+// Phong cách tối giản: pill mềm (nền nhạt + chữ đậm màu), không viền/bóng.
 // =============================================================
 import type { LeadStatus, OrderStatus, LeadSource, UserRole } from '@/lib/database.types';
 
 const BADGE_BASE =
-  'inline-flex items-center gap-1 rounded-full border-2 border-ink px-2.5 py-0.5 text-xs font-bold shadow-hard-xs whitespace-nowrap';
+  'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold whitespace-nowrap';
 
 export interface StatusMeta {
   label: string;
@@ -14,21 +14,21 @@ export interface StatusMeta {
 }
 
 export const LEAD_STATUS_META: Record<LeadStatus, StatusMeta> = {
-  new:    { label: 'Mới',        badge: `${BADGE_BASE} bg-yellow-300 text-ink` },
-  called: { label: 'Đã gọi',     badge: `${BADGE_BASE} bg-blue-300 text-ink` },
-  quoted: { label: 'Đã báo giá', badge: `${BADGE_BASE} bg-teal text-white` },
-  won:    { label: 'Chốt ✓',     badge: `${BADGE_BASE} bg-green-400 text-ink` },
-  lost:   { label: 'Không chốt', badge: `${BADGE_BASE} bg-gray-300 text-ink` },
+  new:    { label: 'Mới',        badge: `${BADGE_BASE} bg-amber-100 text-amber-800` },
+  called: { label: 'Đã gọi',     badge: `${BADGE_BASE} bg-blue-100 text-blue-700` },
+  quoted: { label: 'Đã báo giá', badge: `${BADGE_BASE} bg-teal/10 text-teal` },
+  won:    { label: 'Chốt ✓',     badge: `${BADGE_BASE} bg-green-100 text-green-700` },
+  lost:   { label: 'Không chốt', badge: `${BADGE_BASE} bg-slate-100 text-slate-600` },
 };
 
 export const ORDER_STATUS_META: Record<OrderStatus, StatusMeta> = {
-  received:         { label: 'Đã tiếp nhận',   badge: `${BADGE_BASE} bg-gray-300 text-ink` },
-  picked_up:        { label: 'Đã lấy hàng',    badge: `${BADGE_BASE} bg-blue-300 text-ink` },
-  in_transit:       { label: 'Đang vận chuyển', badge: `${BADGE_BASE} bg-yellow-300 text-ink` },
-  customs:          { label: 'Đang thông quan', badge: `${BADGE_BASE} bg-orange-400 text-ink` },
-  out_for_delivery: { label: 'Đang giao',      badge: `${BADGE_BASE} bg-teal text-white` },
-  delivered:        { label: 'Đã giao ✓',      badge: `${BADGE_BASE} bg-green-400 text-ink` },
-  failed:           { label: 'Giao thất bại',  badge: `${BADGE_BASE} bg-red-400 text-white` },
+  received:         { label: 'Đã tiếp nhận',   badge: `${BADGE_BASE} bg-slate-100 text-slate-600` },
+  picked_up:        { label: 'Đã lấy hàng',    badge: `${BADGE_BASE} bg-blue-100 text-blue-700` },
+  in_transit:       { label: 'Đang vận chuyển', badge: `${BADGE_BASE} bg-amber-100 text-amber-800` },
+  customs:          { label: 'Đang thông quan', badge: `${BADGE_BASE} bg-orange-100 text-orange-700` },
+  out_for_delivery: { label: 'Đang giao',      badge: `${BADGE_BASE} bg-teal/10 text-teal` },
+  delivered:        { label: 'Đã giao ✓',      badge: `${BADGE_BASE} bg-green-100 text-green-700` },
+  failed:           { label: 'Giao thất bại',  badge: `${BADGE_BASE} bg-red-100 text-red-700` },
 };
 
 export const LEAD_STATUS_KEYS: LeadStatus[] = ['new', 'called', 'quoted', 'won', 'lost'];

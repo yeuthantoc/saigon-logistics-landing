@@ -59,9 +59,9 @@ export default async function OrdersListPage({
         isAdmin={!!isAdmin}
       />
 
-      <div className="overflow-x-auto rounded-2xl border-2 border-ink bg-white shadow-hard">
+      <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
         <table className="w-full min-w-[900px] border-collapse">
-          <thead className="border-b-2 border-ink bg-cream">
+          <thead className="border-b border-slate-200 bg-slate-50">
             <tr>
               <th className={TH}>Mã tracking</th>
               <th className={TH}>Ngày tạo</th>
@@ -78,7 +78,7 @@ export default async function OrdersListPage({
           </thead>
           <tbody>
             {rows.map((o) => (
-              <tr key={o.id} className="border-b border-ink/15 hover:bg-cream/50">
+              <tr key={o.id} className="border-b border-slate-100 last:border-0 hover:bg-slate-50">
                 <td className={TD}>
                   <Link href={`/admin/don-hang/${o.id}`} className="font-mono font-bold text-ink hover:underline">
                     {o.tracking_code}
@@ -102,7 +102,7 @@ export default async function OrdersListPage({
                 <td className={TD}>
                   <Link
                     href={`/admin/don-hang/${o.id}`}
-                    className="rounded-lg border-2 border-ink bg-white px-2 py-1 text-xs font-bold shadow-hard-xs hover:-translate-y-[1px]"
+                    className="rounded-md border border-slate-300 bg-white px-2 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-50"
                   >
                     Chi tiết
                   </Link>
@@ -111,7 +111,7 @@ export default async function OrdersListPage({
             ))}
             {rows.length === 0 && (
               <tr>
-                <td className={`${TD} text-center text-muted`} colSpan={11}>
+                <td className={`${TD} text-center text-slate-500`} colSpan={11}>
                   Chưa có đơn hàng nào khớp bộ lọc.
                 </td>
               </tr>
@@ -121,7 +121,7 @@ export default async function OrdersListPage({
       </div>
 
       <div className="flex justify-end">
-        <span className="rounded-full border-2 border-ink bg-white px-3 py-1 text-xs font-bold shadow-hard-xs">
+        <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600">
           {rows.length} đơn
         </span>
       </div>

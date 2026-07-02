@@ -2,8 +2,7 @@
 
 import { useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
-import { btn } from '@/lib/ui';
-import { FIELD, LABEL } from '@/lib/admin/ui';
+import { FIELD, LABEL, PANEL, BTN_PRIMARY } from '@/lib/admin/ui';
 import { LEAD_STATUS_KEYS, LEAD_STATUS_META } from '@/lib/admin/status';
 import { toDatetimeLocal } from '@/lib/admin/format';
 import type { Lead, LeadStatus } from '@/lib/database.types';
@@ -65,7 +64,7 @@ export default function LeadDetailForm({
 
   return (
     <div className="space-y-5">
-      <form onSubmit={saveFields} className="space-y-4 rounded-2xl border-2 border-ink bg-white p-4 shadow-hard">
+      <form onSubmit={saveFields} className={`space-y-4 ${PANEL} p-4`}>
         <h3 className="font-display text-lg font-bold text-ink">Cập nhật lead</h3>
 
         <div className="grid gap-4 sm:grid-cols-2">
@@ -115,15 +114,15 @@ export default function LeadDetailForm({
           </div>
         </div>
 
-        <button type="submit" disabled={saving || pending} className={btn('coral', 'disabled:opacity-60')}>
+        <button type="submit" disabled={saving || pending} className={BTN_PRIMARY}>
           {saving ? 'Đang lưu…' : 'Lưu thay đổi'}
         </button>
       </form>
 
-      <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-hard">
+      <div className={`${PANEL} p-4`}>
         <div className="mb-1 flex items-center justify-between">
           <label className={LABEL}>Ghi chú nội bộ (diễn biến cuộc gọi)</label>
-          {noteSaved && <span className="text-xs font-bold text-teal">Đã lưu ✓</span>}
+          {noteSaved && <span className="text-xs font-semibold text-teal">Đã lưu ✓</span>}
         </div>
         <textarea
           value={note}
@@ -133,7 +132,7 @@ export default function LeadDetailForm({
           className={FIELD}
           placeholder="VD: Đã gọi 10:15, khách hẹn gửi 20kg quà Tết đi Mỹ, sẽ chốt cuối tuần…"
         />
-        <p className="mt-1 text-xs text-muted-2">Tự lưu khi rời khỏi ô.</p>
+        <p className="mt-1 text-xs text-slate-400">Tự lưu khi rời khỏi ô.</p>
       </div>
     </div>
   );

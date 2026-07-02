@@ -45,11 +45,11 @@ export default function AdminShell({
     pathname === href || pathname.startsWith(href + '/');
 
   return (
-    <div className="min-h-screen bg-cream text-ink md:flex">
+    <div className="min-h-screen bg-slate-50 text-ink md:flex">
       {/* Sidebar desktop */}
-      <aside className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 bg-ink text-ink-soft border-r-2 border-ink">
-        <div className="px-5 py-5 border-b-2 border-white/10">
-          <Link href="/" className="font-display text-lg font-extrabold text-white">
+      <aside className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 bg-white border-r border-slate-200">
+        <div className="px-5 py-5 border-b border-slate-200">
+          <Link href="/" className="font-display text-lg font-extrabold text-ink">
             SAIGON LOGISTICS
           </Link>
           <div className="mt-3 flex items-center gap-2">
@@ -57,8 +57,8 @@ export default function AdminShell({
               {userName.charAt(0).toUpperCase()}
             </div>
             <div className="min-w-0">
-              <p className="truncate text-sm font-semibold text-white">{userName}</p>
-              <span className="inline-block rounded-full bg-white/15 px-2 py-0.5 text-[11px] font-bold text-white">
+              <p className="truncate text-sm font-semibold text-ink">{userName}</p>
+              <span className="inline-block rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">
                 {ROLE_LABEL[role]}
               </span>
             </div>
@@ -74,16 +74,16 @@ export default function AdminShell({
                 key={item.href}
                 href={item.href}
                 className={cx(
-                  'flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-colors',
+                  'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-semibold transition-colors',
                   active
-                    ? 'bg-coral text-white'
-                    : 'text-ink-soft hover:bg-white/10 hover:text-white',
+                    ? 'bg-coral/10 text-coral'
+                    : 'text-slate-600 hover:bg-slate-100 hover:text-ink',
                 )}
               >
                 <Icon className="h-5 w-5 shrink-0" />
                 <span className="flex-1">{item.label}</span>
                 {item.badge ? (
-                  <span className="rounded-full bg-red-500 px-1.5 py-0.5 text-[11px] font-bold text-white">
+                  <span className="rounded-full bg-coral px-1.5 py-0.5 text-[11px] font-bold text-white">
                     {item.badge}
                   </span>
                 ) : null}
@@ -92,11 +92,11 @@ export default function AdminShell({
           })}
         </nav>
 
-        <div className="p-3 border-t-2 border-white/10">
+        <div className="p-3 border-t border-slate-200">
           <form action="/auth/signout" method="post">
             <button
               type="submit"
-              className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-ink-soft hover:bg-white/10 hover:text-white transition-colors"
+              className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-100 hover:text-ink transition-colors"
             >
               <LogOut className="h-5 w-5" />
               Đăng xuất
@@ -106,19 +106,19 @@ export default function AdminShell({
       </aside>
 
       {/* Header mobile */}
-      <header className="md:hidden sticky top-0 z-30 flex items-center justify-between bg-ink px-4 py-3 text-white">
+      <header className="md:hidden sticky top-0 z-30 flex items-center justify-between border-b border-slate-200 bg-white px-4 py-3 text-ink">
         <Link href="/" className="font-display text-base font-extrabold">
           SAIGON LOGISTICS
         </Link>
         <div className="flex items-center gap-2">
-          <span className="rounded-full bg-white/15 px-2 py-0.5 text-[11px] font-bold">
+          <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">
             {ROLE_LABEL[role]}
           </span>
           <form action="/auth/signout" method="post">
             <button
               type="submit"
               aria-label="Đăng xuất"
-              className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10"
+              className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-300 text-slate-600"
             >
               <LogOut className="h-4 w-4" />
             </button>
@@ -132,7 +132,7 @@ export default function AdminShell({
       </main>
 
       {/* Bottom nav mobile */}
-      <nav className="md:hidden fixed bottom-0 inset-x-0 z-30 grid grid-cols-4 border-t-2 border-ink bg-white">
+      <nav className="md:hidden fixed bottom-0 inset-x-0 z-30 grid grid-cols-4 border-t border-slate-200 bg-white">
         {nav.map((item) => {
           const Icon = item.icon;
           const active = isActive(item.href);
@@ -142,13 +142,13 @@ export default function AdminShell({
               href={item.href}
               className={cx(
                 'relative flex flex-col items-center gap-0.5 py-2 text-[11px] font-bold',
-                active ? 'text-coral' : 'text-muted',
+                active ? 'text-coral' : 'text-slate-500',
               )}
             >
               <Icon className="h-5 w-5" />
               {item.label}
               {item.badge ? (
-                <span className="absolute right-1/4 top-1 rounded-full bg-red-500 px-1 text-[9px] font-bold text-white">
+                <span className="absolute right-1/4 top-1 rounded-full bg-coral px-1 text-[9px] font-bold text-white">
                   {item.badge}
                 </span>
               ) : null}

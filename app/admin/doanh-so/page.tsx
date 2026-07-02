@@ -11,7 +11,7 @@ import type { LeadSource } from '@/lib/database.types';
 
 export const dynamic = 'force-dynamic';
 
-const PANEL = 'rounded-2xl border-2 border-ink bg-white p-4 shadow-hard';
+const PANEL = 'rounded-lg border border-slate-200 bg-white p-4';
 
 export default async function DoanhSoPage({
   searchParams,
@@ -131,7 +131,7 @@ export default async function DoanhSoPage({
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="font-display text-2xl font-extrabold text-ink">Doanh số</h1>
-        <span className="rounded-full border-2 border-ink bg-white px-3 py-1 text-xs font-bold shadow-hard-xs">
+        <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600">
           Kỳ: {range.label}
         </span>
       </div>

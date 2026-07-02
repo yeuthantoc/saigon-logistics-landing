@@ -37,7 +37,7 @@ export default function OrderFilters({
   }
 
   return (
-    <div className="rounded-2xl border-2 border-ink bg-white p-3 shadow-hard-sm">
+    <div className="rounded-lg border border-slate-200 bg-white p-3">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -46,7 +46,7 @@ export default function OrderFilters({
         className="flex flex-wrap items-center gap-2"
       >
         <div className="relative flex-1 min-w-[180px]">
-          <Search className="pointer-events-none absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-2" />
+          <Search className="pointer-events-none absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}

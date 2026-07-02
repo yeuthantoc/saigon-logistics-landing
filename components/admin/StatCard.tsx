@@ -14,7 +14,7 @@ export default function StatCard({
 }) {
   return (
     <div className={STAT_CARD}>
-      <span className="text-xs font-bold uppercase tracking-wide text-muted">
+      <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
         {label}
       </span>
       <span className="font-display text-2xl font-extrabold text-ink">
@@ -31,7 +31,7 @@ export default function StatCard({
             {delta >= 0 ? '▲' : '▼'} {Math.abs(delta).toFixed(0)}%
           </span>
         )}
-        {hint && <span className="text-xs text-muted-2">{hint}</span>}
+        {hint && <span className="text-xs text-slate-400">{hint}</span>}
       </div>
     </div>
   );

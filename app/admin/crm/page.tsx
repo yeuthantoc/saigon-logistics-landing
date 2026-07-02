@@ -118,9 +118,9 @@ export default async function CrmListPage({
       />
 
       {/* Bảng leads */}
-      <div className="overflow-x-auto rounded-2xl border-2 border-ink bg-white shadow-hard">
+      <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
         <table className="w-full min-w-[820px] border-collapse">
-          <thead className="border-b-2 border-ink bg-cream">
+          <thead className="border-b border-slate-200 bg-slate-50">
             <tr>
               <th className={TH}>Ngày vào</th>
               <th className={TH}>Tên</th>
@@ -134,7 +134,7 @@ export default async function CrmListPage({
           </thead>
           <tbody>
             {rows.map((lead) => (
-              <tr key={lead.id} className="border-b border-ink/15 hover:bg-cream/50">
+              <tr key={lead.id} className="border-b border-slate-100 last:border-0 hover:bg-slate-50">
                 <td className={TD}>{fmtDate(lead.created_at)}</td>
                 <td className={TD}>
                   <Link href={`/admin/crm/${lead.id}`} className="font-semibold text-ink underline-offset-2 hover:underline">
@@ -156,7 +156,7 @@ export default async function CrmListPage({
                   <div className="flex items-center gap-2">
                     <Link
                       href={`/admin/crm/${lead.id}`}
-                      className="rounded-lg border-2 border-ink bg-white px-2 py-1 text-xs font-bold shadow-hard-xs hover:-translate-y-[1px]"
+                      className="rounded-md border border-slate-300 bg-white px-2 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-50"
                     >
                       Chi tiết
                     </Link>
@@ -179,7 +179,7 @@ export default async function CrmListPage({
             ))}
             {rows.length === 0 && (
               <tr>
-                <td className={`${TD} text-center text-muted`} colSpan={8}>
+                <td className={`${TD} text-center text-slate-500`} colSpan={8}>
                   Không có lead nào khớp bộ lọc.
                 </td>
               </tr>
@@ -189,7 +189,7 @@ export default async function CrmListPage({
       </div>
 
       <div className="flex justify-end">
-        <span className="rounded-full border-2 border-ink bg-white px-3 py-1 text-xs font-bold shadow-hard-xs">
+        <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600">
           {rows.length} lead
         </span>
       </div>

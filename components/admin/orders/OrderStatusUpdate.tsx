@@ -3,8 +3,7 @@
 import { useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import { Send, RefreshCw } from 'lucide-react';
-import { btn } from '@/lib/ui';
-import { FIELD, LABEL } from '@/lib/admin/ui';
+import { FIELD, LABEL, PANEL, BTN_PRIMARY, BTN_GHOST } from '@/lib/admin/ui';
 import { ORDER_STATUS_META, nextOrderStatuses } from '@/lib/admin/status';
 import type { OrderStatus } from '@/lib/database.types';
 
@@ -55,11 +54,11 @@ export default function OrderStatusUpdate({
   }
 
   return (
-    <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-hard">
+    <div className={`${PANEL} p-4`}>
       <h3 className="mb-3 font-display text-lg font-bold text-ink">Cập nhật trạng thái</h3>
 
       {options.length === 0 ? (
-        <p className="text-sm text-muted">
+        <p className="text-sm text-slate-500">
           Đơn đã ở trạng thái cuối ({ORDER_STATUS_META[current].label}) — không còn bước tiếp theo.
         </p>
       ) : (
@@ -84,17 +83,17 @@ export default function OrderStatusUpdate({
               placeholder="VD: Đang chờ thông quan tại sân bay LAX…"
             />
           </div>
-          <button type="submit" disabled={saving} className={btn('coral', 'disabled:opacity-60')}>
+          <button type="submit" disabled={saving} className={BTN_PRIMARY}>
             {saving ? 'Đang cập nhật…' : 'Cập nhật'}
           </button>
         </form>
       )}
 
-      <div className="mt-4 border-t-2 border-ink/15 pt-3">
+      <div className="mt-4 border-t border-slate-200 pt-3">
         <button
           onClick={resendZalo}
           disabled={notifying}
-          className="inline-flex items-center gap-2 rounded-xl border-2 border-ink bg-white px-3 py-2 text-sm font-bold shadow-hard-xs hover:-translate-y-[1px] disabled:opacity-60"
+          className={BTN_GHOST}
         >
           {notifying ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
           Gửi thông báo Zalo
