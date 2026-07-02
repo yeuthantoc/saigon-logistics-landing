@@ -11,6 +11,7 @@ import { LeadBadge } from '@/components/admin/StatusBadge';
 import CrmFilters from '@/components/admin/crm/CrmFilters';
 import LeadStatusSelect from '@/components/admin/crm/LeadStatusSelect';
 import CreateOrderButton from '@/components/admin/crm/CreateOrderButton';
+import AddLeadButton from '@/components/admin/crm/AddLeadButton';
 
 export const dynamic = 'force-dynamic';
 
@@ -94,6 +95,7 @@ export default async function CrmListPage({
     <div className="space-y-5">
       <div className="flex items-center justify-between">
         <h1 className="font-display text-2xl font-extrabold text-ink">CRM — Quản lý lead</h1>
+        <AddLeadButton />
       </div>
 
       {/* Thống kê mini */}
